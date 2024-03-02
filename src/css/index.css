@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Moul&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Moul&family=Noto+Sans+Khmer:wght@100..900&display=swap");
+
+@layer base {
+  h1 {
+    @apply lg:text-[40px] xl:text-[40px] md:text-[40px] text-[18px] font-bold lg:leading-[59px] xl:leading-[59px] md:leading-[59px] leading-[24px];
+  }
+  .heading1 {
+    @apply text-[35px] text-textbody leading-[39px];
+  }
+  .heading2 {
+    @apply text-[30px] text-textbody leading-[39px];
+  }
+  .khmer-heading1 {
+    @apply lg:text-[38px] xl:text-[38px] md:text-[18px] text-[18px] text-white font-[400] font-KhmerMoul;
+  }
+  .simple-text {
+    @apply text-[18px] text-textbody font-bold;
+  }
+
+  .text-menu {
+    @apply text-[30px] leading-[39px] text-primery1 font-bold;
+  }
+  .box-btn {
+    @apply bg-primery1 rounded-[6px] px-[24px] py-[12px];
+  }
+  .box {
+    @apply rounded-[6px] px-[24px] py-[12px];
+  }
+}

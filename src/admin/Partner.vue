@@ -310,7 +310,6 @@
 <script>
 import Navbar from "./Navbar.vue";
 import { onMounted, ref } from "vue";
-import AddServiceVue from "./AddService.vue";
 import AddPartnerVue from "./AddPartner.vue";
 export default {
   components: {
@@ -331,3 +330,4 @@ export default {
 </script>
 
 <style lang="scss" scoped></style>
+./AddCategory.vue

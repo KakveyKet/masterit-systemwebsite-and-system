@@ -571,11 +571,11 @@
 <script>
 import Navbar from "./Navbar.vue";
 import { onMounted, ref } from "vue";
-import AddServiceVue from "./AddService.vue";
+import AddCategory from "./AddCategory.vue";
 export default {
   components: {
     Navbar,
-    AddServiceVue,
+    AddCategory,
   },
   setup() {
     const currentComponent = ref("");
@@ -583,7 +583,7 @@ export default {
       currentComponent.value = "";
     };
     const isAdd = () => {
-      currentComponent.value = "AddServiceVue";
+      currentComponent.value = "AddCategory";
     };
     return { currentComponent, isAdd, handleClose };
   },
@@ -591,3 +591,4 @@ export default {
 </script>
 
 <style lang="scss" scoped></style>
+./AddCategory.vue

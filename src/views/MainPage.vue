@@ -205,16 +205,16 @@
       class="w-[80%] h-[90%] mx-auto grid grid-cols-3 items-center justify-center gap-3 mt-4"
     >
       <div
-        class="w-full flex item-center justify-center grayscale opacity-45 hover:opacity-100 hover:grayscale-0 duration-300"
+        class="w-full flex item-center justify-center lg:grayscale xl:grayscale lg:opacity-45 xl:opacity-45 lg:hover:opacity-100 lg:hover:grayscale-0 xl:hover:opacity-100 xl:hover:grayscale-0 duration-300"
       >
         <img
-          class="lg:w-[170px] rou lg:h-[170px] xl:w-[170px] xl:h-[170px] md:w-32 md:h-32 w-16 h-16 object-cover"
+          class="lg:w-[170px] rounded-full lg:h-[170px] xl:w-[170px] xl:h-[170px] md:w-32 md:h-32 w-16 h-16 object-cover"
           src="../assets/image/master-it 1.png"
           alt=""
         />
       </div>
       <div
-        class="w-full flex item-center justify-center grayscale opacity-45 hover:opacity-100 hover:grayscale-0 duration-300"
+        class="w-full flex item-center justify-center lg:grayscale xl:grayscale lg:opacity-45 xl:opacity-45 lg:hover:opacity-100 lg:hover:grayscale-0 xl:hover:opacity-100 xl:hover:grayscale-0 duration-300"
       >
         <img
           class="lg:w-[170px] lg:h-[170px] xl:w-[170px] xl:h-[170px] md:w-32 md:h-32 w-16 h-16 object-cover"
@@ -223,7 +223,7 @@
         />
       </div>
       <div
-        class="w-full flex item-center justify-center grayscale opacity-45 hover:opacity-100 hover:grayscale-0 duration-300"
+        class="w-full flex item-center justify-center lg:grayscale xl:grayscale lg:opacity-45 xl:opacity-45 lg:hover:opacity-100 lg:hover:grayscale-0 xl:hover:opacity-100 xl:hover:grayscale-0 duration-300"
       >
         <img
           class="lg:w-[170px] lg:h-[170px] xl:w-[170px] xl:h-[170px] md:w-32 md:h-32 w-16 h-16 object-cover"
@@ -232,12 +232,12 @@
         />
       </div>
       <div
-        class="w-full flex item-center justify-center grayscale opacity-45 hover:opacity-100 hover:grayscale-0 duration-300"
+        class="w-full flex item-center justify-center lg:grayscale xl:grayscale lg:opacity-45 xl:opacity-45 lg:hover:opacity-100 lg:hover:grayscale-0 xl:hover:opacity-100 xl:hover:grayscale-0 duration-300"
       >
         <img class="w-[170px]" src="../assets/partner/p4.png" alt="" />
       </div>
       <div
-        class="w-full flex item-center justify-center grayscale opacity-45 hover:opacity-100 hover:grayscale-0 duration-300"
+        class="w-full flex item-center justify-center lg:grayscale xl:grayscale lg:opacity-45 xl:opacity-45 lg:hover:opacity-100 lg:hover:grayscale-0 xl:hover:opacity-100 xl:hover:grayscale-0 duration-300"
       >
         <img
           class="lg:w-[170px] lg:h-[170px] xl:w-[170px] xl:h-[170px] md:w-32 md:h-32 w-16 h-16 object-cover"
@@ -246,7 +246,7 @@
         />
       </div>
       <div
-        class="w-full flex item-center justify-center grayscale opacity-45 hover:opacity-100 hover:grayscale-0 duration-300"
+        class="w-full flex item-center justify-center lg:grayscale xl:grayscale lg:opacity-45 xl:opacity-45 lg:hover:opacity-100 lg:hover:grayscale-0 xl:hover:opacity-100 xl:hover:grayscale-0 duration-300"
       >
         <img
           class="lg:w-[170px] lg:h-[170px] xl:w-[170px] xl:h-[170px] md:w-32 md:h-32 w-16 h-16 object-cover"

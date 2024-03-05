@@ -15,10 +15,11 @@ import SystemDetails from '@/views/SystemDetails.vue'
 
 
 import Dashboard from '@/admin/Dashboard.vue'
-import ServiceAndProduct from '@/admin/ServiceAndProduct.vue'
+import ServiceAndProduct from '@/admin/Categories.vue'
 import Product from '@/admin/Product.vue'
 import Partner from '@/admin/Partner.vue'
 import AnswerAndQuestion from '@/admin/AnswerAndQuestion.vue'
+import Htmleditor from '@/admin/Htmleditor.vue'
 const routes = [
   {
     path: '/',
@@ -88,6 +89,11 @@ const routes = [
     path: '/qanda',
     name: 'qanda',
     component: AnswerAndQuestion
+  },
+  {
+    path: '/test',
+    name: 'test',
+    component: Htmleditor
   }
 
 ]

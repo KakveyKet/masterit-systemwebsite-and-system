@@ -26,7 +26,7 @@
           <div class="group flex">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="lg:w-[55px] lg:h-[55px] xl:w-[55px] xl:h-[55px] md:w-[50px] md:h-[50px] w-[50px] h-[50px] group-hover:hidden duration-300"
+              class="lg:w-[55px] lg:h-[55px] xl:w-[55px] xl:h-[55px] md:w-[50px] md:h-[50px] w-[40px] h-[40px] group-hover:hidden duration-300"
               viewBox="0 0 20 20"
             >
               <path
@@ -36,7 +36,7 @@
             </svg>
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="lg:w-[55px] lg:h-[55px] xl:w-[55px] xl:h-[55px] md:w-[50px] md:h-[50px] w-[50px] h-[50px] hidden group-hover:block"
+              class="lg:w-[55px] lg:h-[55px] xl:w-[55px] xl:h-[55px] md:w-[50px] md:h-[50px] w-[40px] h-[40px] hidden group-hover:block"
               viewBox="0 0 256 256"
             >
               <defs>
@@ -64,7 +64,7 @@
           <div class="group flex">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="lg:w-[55px] lg:h-[55px] xl:w-[55px] xl:h-[55px] md:w-[50px] md:h-[50px] w-[50px] h-[50px] group-hover:hidden duration-300"
+              class="lg:w-[55px] lg:h-[55px] xl:w-[55px] xl:h-[55px] md:w-[50px] md:h-[50px] w-[40px] h-[40px] group-hover:hidden duration-300"
               viewBox="0 0 512 512"
             >
               <path
@@ -74,7 +74,7 @@
             </svg>
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="lg:w-[55px] lg:h-[55px] xl:w-[55px] xl:h-[55px] md:w-[50px] md:h-[50px] w-[50px] h-[50px] hidden group-hover:block"
+              class="lg:w-[55px] lg:h-[55px] xl:w-[55px] xl:h-[55px] md:w-[50px] md:h-[50px] w-[40px] h-[40px] hidden group-hover:block"
               viewBox="0 0 256 256"
             >
               <path
@@ -90,7 +90,7 @@
           <div class="group flex">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="lg:w-[55px] lg:h-[55px] xl:w-[55px] xl:h-[55px] md:w-[50px] md:h-[50px] w-[50px] h-[50px] group-hover:hidden duration-300"
+              class="lg:w-[55px] lg:h-[55px] xl:w-[55px] xl:h-[55px] md:w-[50px] md:h-[50px] w-[40px] h-[40px] group-hover:hidden duration-300"
               viewBox="0 0 32 32"
             >
               <path
@@ -100,7 +100,7 @@
             </svg>
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="hidden group-hover:block lg:w-[55px] lg:h-[55px] xl:w-[55px] xl:h-[55px] md:w-[50px] md:h-[50px] w-[50px] h-[50px]"
+              class="lg:w-[55px] lg:h-[55px] xl:w-[55px] xl:h-[55px] md:w-[50px] md:h-[50px] w-[40px] h-[40px] hidden group-hover:block"
               viewBox="0 0 256 256"
             >
               <defs>
@@ -131,7 +131,7 @@
           <div class="group flex">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="lg:w-[55px] lg:h-[55px] xl:w-[55px] xl:h-[55px] md:w-[50px] md:h-[50px] w-[50px] h-[50px] group-hover:hidden duration-300"
+              class="lg:w-[55px] lg:h-[55px] xl:w-[55px] xl:h-[55px] md:w-[50px] md:h-[50px] w-[40px] h-[40px] group-hover:hidden duration-300"
               viewBox="0 0 512 512"
             >
               <path
@@ -141,7 +141,7 @@
             </svg>
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="lg:w-[55px] lg:h-[55px] xl:w-[55px] xl:h-[55px] md:w-[50px] md:h-[50px] w-[50px] h-[50px] hidden group-hover:block"
+              class="lg:w-[55px] lg:h-[55px] xl:w-[55px] xl:h-[55px] md:w-[50px] md:h-[50px] w-[40px] h-[40px] hidden group-hover:block"
               viewBox="0 0 256 290"
             >
               <path
@@ -160,7 +160,7 @@
           <div class="group flex">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="lg:w-[55px] lg:h-[55px] xl:w-[55px] xl:h-[55px] md:w-[50px] md:h-[50px] w-[50px] h-[50px] group-hover:hidden duration-300"
+              class="lg:w-[55px] lg:h-[55px] xl:w-[55px] xl:h-[55px] md:w-[50px] md:h-[50px] w-[40px] h-[40px] group-hover:hidden duration-300"
               viewBox="0 0 24 24"
             >
               <path
@@ -170,7 +170,7 @@
             </svg>
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="lg:w-[55px] lg:h-[55px] xl:w-[55px] xl:h-[55px] md:w-[50px] md:h-[50px] w-[50px] h-[50px] hidden group-hover:block"
+              class="lg:w-[55px] lg:h-[55px] xl:w-[55px] xl:h-[55px] md:w-[50px] md:h-[50px] w-[40px] h-[40px] hidden group-hover:block"
               viewBox="0 0 256 180"
             >
               <path
@@ -354,5 +354,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped></style>

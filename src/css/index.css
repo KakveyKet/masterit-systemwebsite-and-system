@@ -6,6 +6,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Moul&family=Noto+Sans+Khmer:wght@100..900&display=swap");
 
 @layer base {
+  .Container {
+    @apply lg:w-[1920px] xl:w-[1920px] md:w-full w-full;
+  }
   h1 {
     @apply lg:text-[40px] xl:text-[40px] md:text-[40px] text-[18px] font-bold lg:leading-[59px] xl:leading-[59px] md:leading-[59px] leading-[24px];
   }
@@ -30,5 +33,20 @@
   }
   .box {
     @apply rounded-[6px] px-[24px] py-[12px];
+  }
+  .boxbtn {
+    @apply rounded-[6px]  px-[24px] py-[12px] active:bg-primery1/50  duration-300 active:text-white hover:bg-primery1 hover:text-background;
+  }
+  .btn {
+    @apply rounded-[6px] w-[340px] h-[90px] shadow-md  text-white hover:text-primery1 flex items-center justify-center gap-4 hover:border-2 hover:border-primery1 duration-200 hover:bg-background;
+  }
+  .btndynamic {
+    @apply rounded-[6px] px-[24px] py-[12px] hover:border outline-none hover:bg-background hover:text-primery1 duration-300 hover:border-primery1;
+  }
+  .input_search {
+    @apply rounded-[6px] px-[24px] py-[12px] border border-borderBody w-[386px] hover:border-primery1 focus:shadow-md flex items-center;
+  }
+  .input {
+    @apply rounded-[6px] px-[24px] py-[12px] border border-borderBody w-[520px] placeholder:text-heading4 hover:border-primery1 focus:shadow-md flex items-center;
   }
 }

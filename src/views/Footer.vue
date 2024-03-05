@@ -4,7 +4,7 @@
   >
     <div class="w-full md:w-full lg:w-[1420px] xl:w-[1420px]">
       <div class="py-4 lg:mt-0 xl:mt-0 mt-12">
-        <p class="simple-text text-white text-center">
+        <p class="simple-text text-white text-center text-body font-semibold">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Lectus
           arcu bibendum at varius vel pharetra. Sit amet consectetur adipiscing
@@ -296,7 +296,7 @@
         </div>
         <div class="full flex flex-col">
           <div>
-            <h2 class="text-Heading1 text-start ml-2 text-white py-4 font-bold">
+            <h2 class="text-heading2 text-start ml-2 text-white py-2 font-bold">
               Contact Us
             </h2>
           </div>
@@ -304,28 +304,28 @@
           <ul class="ml-2 py-4">
             <li class="text-white text-heading4 font-bold">
               Email :
-              <span class="text-body text-white font-normal"
-                >masterit.system@gmail.com</span
+              <span class="text-[16px] text-white font-normal">
+                masterit.system@gmail.com</span
               >
             </li>
             <li class="text-white text-heading4 font-bold">
               Telephone :
-              <span class="text-body text-white font-normal"
-                >095 956 656 / 096 50 21 168</span
+              <span class="text-[16px] text-white font-normal">
+                095 956 656 / 096 50 21 168</span
               >
             </li>
             <li class="text-white text-heading4 font-bold">
               Telegram :
               <a
                 href="https://t.me/masteritsystems_saleconsultant"
-                class="text-body text-white font-normal"
+                class="text-[16px] text-white font-normal"
               >
                 https://t.me/masteritsystems_saleconsultant</a
               >
             </li>
             <li class="text-white text-heading4 font-bold">
               Address :
-              <span class="text-body text-white font-normal">
+              <span class="text-[16px] text-white font-normal">
                 Phum Romchek IV, Sangkat Ratanak, Krong Battambang, <br />
                 Battambang Province</span
               >
@@ -338,10 +338,10 @@
   <div
     class="bg-primery2 w-full max-w-[1920px] h-[108px] flex items-center flex-col justify-center"
   >
-    <p class="text-heading4 text-labeltext2/50 font-bold">
+    <p class="text-heading4 text-center text-labeltext2/50 font-bold">
       In Terms of Use | Privacy Policy
     </p>
-    <p class="text-heading4 text-labeltext2/50 font-bold">
+    <p class="text-heading4 text-center text-labeltext2/50 font-bold">
       @2012-2024 Copy right | Master-IT System
     </p>
   </div>

@@ -31,6 +31,7 @@ module.exports = {
         textbody: '#303030',
         lebeltext: '#909090',
         placehovertext: '#dbdbdbd',
+        borderBody: '#e6e6e6',
       },
       borderColor: {
         primery1: '#500192',

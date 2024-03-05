@@ -12,6 +12,13 @@ import WebsiteDevelopmentVue from '@/views/WebsiteDevelopment.vue'
 import BussinessManangerDevelopmentVue from '@/views/BussinessManangerDevelopment.vue'
 
 import SystemDetails from '@/views/SystemDetails.vue'
+
+
+import Dashboard from '@/admin/Dashboard.vue'
+import ServiceAndProduct from '@/admin/ServiceAndProduct.vue'
+import Product from '@/admin/Product.vue'
+import Partner from '@/admin/Partner.vue'
+import AnswerAndQuestion from '@/admin/AnswerAndQuestion.vue'
 const routes = [
   {
     path: '/',
@@ -58,6 +65,29 @@ const routes = [
     path: '/systemdev/:id',
     name: 'systemdetails',
     component: SystemDetails
+  },
+  {
+    path: '/admin',
+    name: 'admin',
+    component: Dashboard,
+  },
+  {
+    path: '/services',
+    name: 'services',
+    component: ServiceAndProduct
+  }, {
+    path: '/products',
+    name: 'products',
+    component: Product
+  },
+  {
+    path: '/partner',
+    name: 'partner',
+    component: Partner
+  }, {
+    path: '/qanda',
+    name: 'qanda',
+    component: AnswerAndQuestion
   }
 
 ]

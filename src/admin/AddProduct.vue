@@ -33,7 +33,7 @@
           <h1 class="text-heading2">Product Feature</h1>
           <div class="flex items-end justify-center">
             <div class="flex items-end justify-between">
-              <div>
+              <form @submit.prevent="handleAddFeature" class="space-y-4">
                 <div
                   class="w-[190px] h-[190px] relative hover:border hover:border-primery1 duration-300 rounded-sm hover:rounded-md"
                 >
@@ -45,33 +45,43 @@
                   <input
                     type="file"
                     class="opacity-0 top-12 w-full h-full absolute"
-                    name=""
+                    @change="handleFileChange"
                   />
+                  <div>
+                    img
+                    <img :src="img?.src" alt="" />
+                  </div>
                 </div>
                 <input
-                  type="file"
-                  class="opacity-0 w-16"
+                  type="text"
+                  v-model="productFeaturesTitle"
+                  class="input"
                   placeholder="Service Name"
                 />
+
                 <textarea
                   rows="2"
+                  v-model="productFeatueDetails"
                   type="text"
                   class="input"
                   placeholder="Descriptions"
                 />
-              </div>
+                <button class="btndynamic bg-primery1 text-white">
+                  Add Feature
+                </button>
+              </form>
             </div>
-
             <br />
           </div>
         </div>
         <div class="w-auto mx-auto flex items-center justify-end">
           <div class="w-1/2"></div>
           <div class="w-1/2 flex justify-between">
-            <h1>[ ]</h1>
-            <button class="btndynamic bg-primery1 text-white">
-              Add Feature
-            </button>
+            <h1 v-for="productFeature in productFeatures" :key="productFeature">
+              <p>{{ productFeature.title }}</p>
+
+              <img :src="productFeature.image" alt="" />
+            </h1>
           </div>
         </div>
         <div class="w-auto flex justify-between mx-auto">
@@ -107,13 +117,72 @@
 </template>
 
 <script>
+import useCollection from "@/composible/useCollection";
+import useStorage from "@/composible/useStorange";
+import { ref } from "vue";
 export default {
   props: [""],
   setup(props, { emit }) {
+    const productName = ref("");
+    const productDesscript = ref("");
+
+    const productFeatures = ref([]);
+    const productFeaturesTitle = ref("");
+    const productFeatueDetails = ref("");
+    const img = ref(null);
+
+    const productDisplay = ref("");
+    const productType = ref("");
+
+    const handleAddFeature = () => {
+      const newFeature = {
+        title: productFeaturesTitle.value,
+        details: productFeatueDetails.value,
+        image: img.value,
+      };
+      productFeatures.value.push(newFeature);
+      productFeaturesTitle.value = "";
+      productFeatueDetails.value = "";
+      console.log("====================================");
+      console.log(newFeature);
+      console.log("====================================");
+    };
+    const handleFileChange = (event) => {
+      const file = event.target.files[0];
+      console.log(file);
+      if (!file) {
+        console.error("No file selected.");
+        return;
+      }
+      const allowedExtensions = [
+        "imgae/jpg",
+        "image/png",
+        "image/svg",
+        "image/jpeg",
+      ];
+      if (!allowedExtensions.includes(file.type)) {
+        console.error("Only jpg, png, svg, and jpeg files are allowed.");
+        return;
+      }
+      img.value = {
+        name: file.name,
+        src: URL.createObjectURL(file),
+        type: file.type,
+      };
+    };
     const handleClose = () => {
       emit("close");
     };
-    return { handleClose };
+    return {
+      handleClose,
+      handleAddFeature,
+      handleFileChange,
+      productFeatueDetails,
+      productFeaturesTitle,
+      productFeatures,
+
+      img,
+    };
   },
 };
 </script>

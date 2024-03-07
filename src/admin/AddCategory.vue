@@ -24,10 +24,15 @@
           </svg>
         </button>
       </div>
-      <form class="w-full mt-5 space-y-4">
+      <form @submit.prevent="handleSubmit" class="w-full mt-5 space-y-4">
         <div class="w-[90%] flex justify-between mx-auto">
           <h1 class="text-heading2">Service Name</h1>
-          <input type="text" class="input" placeholder="Service Name" />
+          <input
+            v-model="categoryName"
+            type="text"
+            class="input"
+            placeholder="Service Name"
+          />
         </div>
         <div class="w-[90%] flex justify-between mx-auto">
           <h1 class="text-heading2">Service Image</h1>
@@ -43,20 +48,15 @@
                 />
                 <input
                   type="file"
+                  @change="handleFileChange"
                   class="opacity-0 top-12 w-full h-full absolute"
-                  name=""
-                  id=""
+                  required
                 />
               </div>
-              <input
-                type="file"
-                class="opacity-0 w-16"
-                placeholder="Service Name"
-              />
             </div>
-            <button class="btndynamic bg-primery1 text-white">
+            <!-- <button class="btndynamic bg-primery1 text-white">
               Upload Image
-            </button>
+            </button> -->
           </div>
         </div>
         <div class="w-[90%] flex justify-between mx-auto">
@@ -66,6 +66,7 @@
             type="text"
             class="input"
             placeholder="Descriptions"
+            v-model="categoryDescription"
           />
         </div>
         <div class="w-[90%] flex justify-end mx-auto">
@@ -77,13 +78,67 @@
 </template>
 
 <script>
+import useCollection from "@/composible/useCollection";
+import useStorage from "../composible/useStorange";
+import { ref } from "vue";
+
 export default {
   props: [""],
   setup(props, { emit }) {
+    const { addDocs, removeDoc, updateDocs } = useCollection("categories");
+    const { uploadImage } = useStorage();
+    const categoryName = ref("");
+    const categoryDescription = ref("");
+    const img = ref(null);
+    const handleFileChange = (event) => {
+      const file = event.target.files[0];
+      if (!file) {
+        console.error("No file selected.");
+        return;
+      }
+      const allowedExtensions = ["jpg", "png", "svg", "jpeg"];
+      const extension = file.name.split(".").pop().toLowerCase();
+      if (!allowedExtensions.includes(extension)) {
+        console.error("Only jpg, png, svg, and jpeg files are allowed.");
+        return;
+      }
+      img.value = file;
+    };
+    const handleSubmit = async () => {
+      try {
+        let imageURL = null;
+        if (img.value) {
+          if (img.value.size > 1024 * 1024) {
+            console.error("Image size exceeds 1MB limit.");
+            return;
+          }
+          const storagePath = `categories/${img.value.name}`;
+          imageURL = await uploadImage(storagePath, img.value);
+        }
+        const productData = {
+          name: categoryName.value,
+          description: categoryDescription.value,
+          image: imageURL,
+        };
+        await addDocs(productData);
+        handleClose();
+        console.log("Product operation successful");
+      } catch (error) {
+        console.error("Error performing product operation:", error);
+      }
+    };
     const handleClose = () => {
       emit("close");
     };
-    return { handleClose };
+
+    return {
+      handleClose,
+      handleSubmit,
+      handleFileChange,
+      categoryName,
+      categoryDescription,
+      img,
+    };
   },
 };
 </script>

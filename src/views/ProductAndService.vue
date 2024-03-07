@@ -1,12 +1,9 @@
 <template>
   <div class="flex flex-col">
-    <div>
-      <Navbar />
-    </div>
     <div class="lg:w-[1920px] xl:w-[1920px] md:w-full w-full h-auto py-3">
       <div class="lg:w-[1420px] xl:w-[1420px] w-full md:w-full mx-auto">
-        <div class="lg:mt-52 xl:mt-52 md:mt-32 mt-14 text-center">
-          <div class="lg:mt-52 xl:mt-52 md:mt-32 mt-14 text-center py-4">
+        <div class="lg:mt-10 xl:mt-10 md:mt-32 mt-14 text-center">
+          <div class="lg:mt-10 xl:mt-10 md:mt-32 mt-14 text-center py-4">
             <h1 class="font-NotoSansKhmer text-primery1">
               ផលិតផល និងសេវាកម្មយើង
             </h1>
@@ -134,21 +131,12 @@
         </div>
       </div>
     </div>
-    <div>
-      <Footer />
-    </div>
   </div>
 </template>
 
 <script>
-import Navbar from "./Navbar.vue";
-import Footer from "./Footer.vue";
 import { useRouter } from "vue-router";
 export default {
-  components: {
-    Navbar,
-    Footer,
-  },
   setup() {
     const router = useRouter();
     const handleGotoSystenDev = () => {

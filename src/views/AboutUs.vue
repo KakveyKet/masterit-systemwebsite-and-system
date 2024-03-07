@@ -1,12 +1,9 @@
 <template>
   <div class="flex flex-col">
-    <div>
-      <Navbar />
-    </div>
     <div
       class="w-full max-w-[1920px] bg-background h-auto py-12 flex flex-col items-center justify-center"
     >
-      <div class="lg:mt-52 xl:mt-52 md:mt-32 mt-14 text-center">
+      <div class="lg:mt-10 xl:mt-10 md:mt-32 mt-14 text-center">
         <h1 class="font-NotoSansKhmer text-primery1">អំពីយើង</h1>
         <h1 class="text-primery1 font-NotoSansKhmer">About Us</h1>
       </div>
@@ -133,7 +130,7 @@
         class="w-full max-w-[1420px] space-y-4 flex flex-col items-center justify-center mt-8 lg-0 xl:p-0 p-4"
       >
         <div
-          class="lg:w-[910px] xl:w-[910px] w-full mx-auto lg:h-[440px] xl:h-[440px] rounded-[6px] border-accent border-2 shadow-md relative p-5"
+          class="lg:w-[910px] xl:w-[910px] w-full mx-auto lg:h-[440px] xl:h-[440px] rounded-[6px] shadow-md relative p-5"
         >
           <div class="w-full">
             <h1
@@ -149,7 +146,7 @@
             <img src="../assets/image/qmark.png" />
           </div>
           <h1
-            class="lg:text-heading3 xl:text-heading3 text-[20px] md:text-[20px] text-accent font-bold font-NotoSansKhmer lg:text-center xl:text-center text-start md:text-start"
+            class="lg:text-heading3 xl:text-heading3 text-[20px] md:text-[20px] text-primery1/50 font-bold font-NotoSansKhmer lg:text-center xl:text-center text-start md:text-start"
           >
             ម៉ាស្ទ័រអាយធី ស៊ីស្ទឹម
           </h1>
@@ -221,43 +218,5 @@
         </div>
       </div>
     </div>
-    <div>
-      <Footer />
-    </div>
   </div>
 </template>
-
-<script>
-import { Transition } from "vue";
-import { ref, computed } from "vue";
-import Navbar from "./Navbar.vue";
-import Footer from "./Footer.vue";
-export default {
-  components: {
-    Navbar,
-    Footer,
-    Transition,
-  },
-  setup() {
-    const show = ref(true);
-
-    return {
-      show,
-    };
-  },
-  mounted() {
-    // After the component is mounted, set isVisible to true
-    this.show = true;
-  },
-};
-</script>
-<style>
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s;
-}
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
-}
-</style>

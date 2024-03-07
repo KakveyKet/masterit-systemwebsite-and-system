@@ -24,10 +24,15 @@
           </svg>
         </button>
       </div>
-      <form class="w-full mt-5 space-y-4">
+      <form @submit.prevent="handleSubmit" class="w-full mt-5 space-y-4">
         <div class="w-[90%] flex justify-between mx-auto">
           <h1 class="text-heading2">Question</h1>
-          <input type="text" class="input" placeholder="Service Name" />
+          <input
+            v-model="Question"
+            type="text"
+            class="input"
+            placeholder="Question"
+          />
         </div>
 
         <div class="w-[90%] flex justify-between mx-auto">
@@ -36,7 +41,8 @@
             rows="5"
             type="text"
             class="input"
-            placeholder="Descriptions"
+            placeholder="Answer"
+            v-model="Answer"
           />
         </div>
         <div class="w-[90%] flex justify-end mx-auto">
@@ -48,13 +54,30 @@
 </template>
 
 <script>
+import useCollection from "@/composible/useCollection";
+import { getCollectionQuery } from "@/composible/getCollection";
+import { onMounted, ref } from "vue";
 export default {
   props: [""],
   setup(props, { emit }) {
+    const { addDocs, removeDoc, updateDocs } = useCollection("FAQ");
+
+    const Question = ref("");
+    const Answer = ref("");
+    const handleSubmit = async () => {
+      const newQuestion = {
+        question: Question.value,
+        answer: Answer.value,
+      };
+      await addDocs(newQuestion);
+      handleClose();
+    };
     const handleClose = () => {
       emit("close");
+      Answer.value = "";
+      Question.value = "";
     };
-    return { handleClose };
+    return { handleClose, handleSubmit, Question, Answer };
   },
 };
 </script>

@@ -4,10 +4,22 @@ import router from './router'
 import '../src/css/index.css'
 import { MotionPlugin } from '@vueuse/motion'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import 'primevue/resources/themes/aura-light-green/theme.css'
 import PrimeVue from 'primevue/config';
+import Accordion from 'primevue/accordion';
+import AccordionTab from 'primevue/accordiontab';
 import { library } from '@fortawesome/fontawesome-svg-core'
+import StyleClass from 'primevue/styleclass';
 import { faUserSecret, faMask, faCircleQuestion, faHandshakeSimple, faCircleInfo, faFilter, faBullhorn } from '@fortawesome/free-solid-svg-icons'
 library.add(faUserSecret, faMask, faCircleQuestion, faHandshakeSimple, faCircleInfo, faFilter, faBullhorn)
 
 
-createApp(App).use(router).use(MotionPlugin).use(PrimeVue).component('font-awesome-icon', FontAwesomeIcon).mount('#app')
+let app = createApp(App);
+app.directive('styleclass', StyleClass);
+app.use(router);
+app.use(MotionPlugin);
+app.use(PrimeVue);
+app.component('font-awesome-icon', FontAwesomeIcon);
+app.component('Accordion', Accordion);
+app.component('AccordionTab', AccordionTab);
+app.mount('#app');

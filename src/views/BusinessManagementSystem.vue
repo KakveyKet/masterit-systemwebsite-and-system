@@ -1,8 +1,6 @@
 <template>
   <div class="flex flex-col">
-    <div><NavbarVue /></div>
     <div>this is</div>
-    <div><FooterVue /></div>
   </div>
 </template>
 

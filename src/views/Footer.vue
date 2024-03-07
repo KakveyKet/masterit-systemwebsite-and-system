@@ -1,10 +1,12 @@
 <template>
   <div
-    class="w-full lg:w-[1920px] xl:w-[1920px] md:w-full bg-primery1 lg:h-[800px] xl:h-[800px] md:h-auto h-auto flex items-center justify-center"
+    class="w-full lg:w-[1920px] xl:w-[1920px] md:w-full bg-primery1 lg:h-[800px] xl:h-[800px] md:h-auto h-auto flex items-center justify-center font-NotoSansKhmer"
   >
-    <div class="w-full md:w-full lg:w-[1420px] xl:w-[1420px]">
+    <div class="w-[90%] md:w-full lg:w-[1420px] xl:w-[1420px]">
       <div class="py-4 lg:mt-0 xl:mt-0 mt-12">
-        <p class="simple-text text-white text-center text-body font-semibold">
+        <p
+          class="text-white text-center lg:text-body xl:text-body md:text-md font-semibold"
+        >
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Lectus
           arcu bibendum at varius vel pharetra. Sit amet consectetur adipiscing
@@ -19,7 +21,11 @@
       <div
         class="w-full md:w-full lg:w-[1420px] xl:w-[1420px] space-y-4 py-4 flex items-center flex-col justify-center"
       >
-        <h1 class="text-Heading1 text-white text-center py-4">Social Media</h1>
+        <h1
+          class="lg:text-Heading1 xl:text-Heading1 md:text-heading2 text-heading3 text-white text-center py-4"
+        >
+          Social Media
+        </h1>
         <div
           class="lg:h-[80px] bg-primery2 rounded-full flex items-center justify-center lg:gap-12 xl:gap-12 gap-5 lg:w-[500px] xl:w-[500px] w-auto lg:p-2 xl:p-0 md:p-2 p-2"
         >
@@ -203,7 +209,9 @@
         </div>
         <div class="w-[60%] flex flex-col items-end">
           <div class="w-[64%]">
-            <h2 class="text-Heading1 text-left text-white py-4 font-bold">
+            <h2
+              class="lg:text-Heading1 xl:text-Heading1 md:text-heading2 text-heading3 text-left text-white py-4 font-bold"
+            >
               Contact Us
             </h2>
           </div>
@@ -241,7 +249,9 @@
         </div>
         <div class="w-full lg:hidden xl:hidden flex flex-col md:flex">
           <div class="w-full">
-            <h2 class="text-Heading1 text-left text-white py-4 font-bold">
+            <h2
+              class="lg:text-Heading1 xl:text-Heading1 md:text-heading2 text-heading4 text-left text-white py-4 font-bold"
+            >
               Contact Us
             </h2>
           </div>
@@ -281,7 +291,7 @@
       <div
         class="w-full lg:hidden xl:hidden md:flex flex flex-col items-center justify-between mt-12"
       >
-        <div class="w-[90%] space-x-2 items-center justify-center flex">
+        <div class="w-[90%] space-x-4 items-center justify-center flex py-4">
           <img
             src="../assets/image/image 5.png"
             class="w-[95px] h-[95px] mx-auto"
@@ -289,32 +299,34 @@
           />
           <div class="w-full text-start">
             <h1 class="text-white">Master IT System</h1>
-            <p class="text-body font-bold text-white">
+            <p class="text-md font-bold text-white">
               We will help you to control your business easily and grow it fast
             </p>
           </div>
         </div>
         <div class="full flex flex-col">
           <div>
-            <h2 class="text-heading2 text-start ml-2 text-white py-2 font-bold">
+            <h2
+              class="lg:text-Heading1 xl:text-Heading1 md:text-heading2 text-heading3 text-start ml-2 text-white py-2 font-bold"
+            >
               Contact Us
             </h2>
           </div>
 
           <ul class="ml-2 py-4">
-            <li class="text-white text-heading4 font-bold">
+            <li class="text-white text-body font-bold">
               Email :
               <span class="text-[16px] text-white font-normal">
                 masterit.system@gmail.com</span
               >
             </li>
-            <li class="text-white text-heading4 font-bold">
+            <li class="text-white text-body font-bold">
               Telephone :
               <span class="text-[16px] text-white font-normal">
                 095 956 656 / 096 50 21 168</span
               >
             </li>
-            <li class="text-white text-heading4 font-bold">
+            <li class="text-white text-body font-bold">
               Telegram :
               <a
                 href="https://t.me/masteritsystems_saleconsultant"
@@ -323,7 +335,7 @@
                 https://t.me/masteritsystems_saleconsultant</a
               >
             </li>
-            <li class="text-white text-heading4 font-bold">
+            <li class="text-white text-body font-bold">
               Address :
               <span class="text-[16px] text-white font-normal">
                 Phum Romchek IV, Sangkat Ratanak, Krong Battambang, <br />

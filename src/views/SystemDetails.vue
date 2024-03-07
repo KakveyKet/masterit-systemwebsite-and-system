@@ -1,10 +1,6 @@
 <template>
   <div class="flex flex-col">
     <div>
-      <NavbarVue />
-    </div>
-
-    <div>
       <div
         v-for="product in data"
         :key="product"
@@ -64,7 +60,6 @@
         </div>
       </div>
     </div>
-    <div><FooterVue /></div>
   </div>
 </template>
 

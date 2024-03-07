@@ -27,7 +27,6 @@
                 clip-rule="evenodd"
               />
             </svg>
-
             Go Back
           </button>
           <!-- router -->

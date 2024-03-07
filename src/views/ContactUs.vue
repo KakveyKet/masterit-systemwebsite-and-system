@@ -1,12 +1,9 @@
 <template>
   <div class="w-full flex flex-col">
-    <div>
-      <Navbar />
-    </div>
     <div class="lg:w-[1920px] xl:w-[1920px] md:w-full w-full h-auto">
       <div class="lg:w-[1420px] xl:w-[1420px] w-full md:w-full mx-auto">
-        <div class="lg:mt-52 xl:mt-52 md:mt-32 mt-14 text-center">
-          <div class="lg:mt-52 xl:mt-52 md:mt-32 mt-14 text-center py-4">
+        <div class="lg:mt-10 xl:mt-10 md:mt-32 mt-14 text-center">
+          <div class="lg:mt-10 xl:mt-10 md:mt-32 mt-14 text-center py-4">
             <h1 class="font-NotoSansKhmer text-primery1">ទំនាក់ទំនង</h1>
             <h1 class="text-primery1 font-NotoSansKhmer">(Our Contact)</h1>
           </div>
@@ -163,19 +160,5 @@
         </div>
       </div>
     </div>
-    <div>
-      <Footer />
-    </div>
   </div>
 </template>
-
-<script>
-import Navbar from "./Navbar.vue";
-import Footer from "./Footer.vue";
-export default {
-  components: {
-    Navbar,
-    Footer,
-  },
-};
-</script>

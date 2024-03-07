@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full lg:w-[1920px] xl:w-[1920px] md:full bg-primery1 mt-12 h-screen relative p-2 lg:flex xl:flex md:hidden hidden overflow-hidden"
+    class="w-full lg:w-[1920px] xl:w-[1920px] md:full bg-primery1 h-screen relative p-2 lg:flex xl:flex md:hidden hidden overflow-hidden"
   >
     <div class="w-[50%] h-full flex flex-col items-center justify-center">
       <div class="w-[70%] ml-[12rem]">
@@ -8,11 +8,11 @@
           ពួកយើងជួយអ្នកឱ្យ
         </p>
         <div class="py-2 font-NotoSansKhmer">
-          <h1 class="text-white text-[75px] tracking-wider">
+          <h1 class="text-white text-[65px] tracking-wider">
             គ្រប់គ្រងអាជីវកម្ម
           </h1>
           <br />
-          <h1 class="text-white text-[75px] tracking-wider">
+          <h1 class="text-white text-[65px] tracking-wider">
             របស់អ្នកងាយស្រួល
           </h1>
           <p
@@ -29,7 +29,7 @@
       </div>
     </div>
     <div
-      class="w-[1260px] h-[1183px] rounded-[100%] overflow-hidden border-[14px] border-white absolute top-20 -right-64"
+      class="w-[1260px] h-[1183px] rounded-[100%] overflow-hidden border-[14px] border-white absolute -top-10 -right-64"
     >
       <img
         class="w-full h-full object-cover rounded-[100%] overflow-auto hover:scale-105 hover:rotate-[2deg] duration-300"
@@ -52,7 +52,7 @@
       />
     </div>
     <div class="h-full flex flex-col justify-end ml-8 font-NotoSansKhmer">
-      <div class="mb-8">
+      <div class="mb-24">
         <p class="text-menu text-white text-body">ពួកយើងជួយអ្នកឱ្យ</p>
         <div class="py-2">
           <h1 class="text-white text-heading2 tracking-wider">
@@ -76,10 +76,12 @@
   </div>
   <!-- out standing -->
   <div
-    class="lg:w-[1920px] bg-background lg:h-[95vh] xl:[95vh] md:h-auto h-auto py-6"
+    class="lg:w-[1920px] bg-background lg:h-[95vh] xl:h-auto md:h-auto h-auto py-6"
   >
     <div class="lg:w-[1500px] xl:w-[1500px] md:w-full w-full mx-auto py-4">
-      <p class="heading2 font-NotoSansKhmer lg:ml-0 xl:ml-0 md:ml-4 ml-4">
+      <p
+        class="lg:text-heading2 xl:text-heading2 md:text-heading2 text-heading4 font-NotoSansKhmer lg:ml-0 xl:ml-0 md:ml-4 ml-4"
+      >
         Out Standing Product
       </p>
     </div>
@@ -87,101 +89,25 @@
       class="lg:w-[1500px] xl:w-[1500px] md:w-full w-full mx-auto scrollbar-hide overflow-auto gap-3 flex lg:p-0 xl:p-0 md:p-3 p-3"
     >
       <div
-        class="lg:w-[500px] xl:w-[500px] lg:h-[690px] xl:h-[690px] w-[364px] h-[460px] border-primery1 border-2 rounded-[6px] overflow-hidden flex-none p-2"
+        v-for="cart in 10"
+        :key="cart"
+        class="lg:w-[400px] xl:w-[400px] lg:h-[600px] xl:h-[600px] w-[364px] h-[450px] rounded-[6px] overflow-hidden flex-none relative group"
       >
-        <div class="w-full lg:h-[70%] xl:h-[70%] md:h-[313.27px] h-[313.27px]">
+        <div
+          class="w-full lg:h-[70%] xl:h-[70%] md:h-[313.27px] h-[313.27px] shadow-md group"
+        >
           <img
             src="https://i.pinimg.com/564x/78/51/7f/78517fcfb8ece6c7bd5b40fe444c4895.jpg"
             class="rounded-[6px] w-full h-full object-cover"
           />
         </div>
-        <div class="w-full h-[30%] flex items-center lg:p-0 xl:p-0 md:p-5 p-5">
-          <p class="text-[16px] font-semibold font-NotoSansKhmer">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis
-            laboriosam quia at officiis quas reiciendis magnam illo iure ducimus
-            nostrum fugit quidem,
-          </p>
-        </div>
-      </div>
-      <div
-        class="lg:w-[500px] xl:w-[500px] lg:h-[690px] xl:h-[690px] w-[364px] h-[460px] border-primery1 border-2 rounded-[6px] overflow-hidden flex-none p-2"
-      >
-        <div class="w-full lg:h-[70%] xl:h-[70%] md:h-[313.27px] h-[313.27px]">
-          <img
-            src="https://i.pinimg.com/564x/12/47/7e/12477e29cb19fc1981992c687559ec9e.jpg"
-            class="rounded-[6px] w-full h-full object-cover"
-          />
-        </div>
-        <div class="w-full h-[30%] flex items-center lg:p-0 xl:p-0 md:p-5 p-5">
-          <p class="text-[16px] font-semibold font-NotoSansKhmer">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis
-            laboriosam quia at officiis quas reiciendis magnam illo iure ducimus
-            nostrum fugit quidem,
-          </p>
-        </div>
-      </div>
-      <div
-        class="lg:w-[500px] xl:w-[500px] lg:h-[690px] xl:h-[690px] w-[364px] h-[460px] border-primery1 border-2 rounded-[6px] overflow-hidden flex-none p-2"
-      >
-        <div class="w-full lg:h-[70%] xl:h-[70%] md:h-[313.27px] h-[313.27px]">
-          <img
-            src="https://i.pinimg.com/736x/2f/6c/60/2f6c60255278e49f4aaad29ad8fd6331.jpg"
-            class="rounded-[6px] w-full h-full object-cover"
-          />
-        </div>
-        <div class="w-full h-[30%] flex items-center lg:p-0 xl:p-0 md:p-5 p-5">
-          <p class="text-[16px] font-semibold font-NotoSansKhmer">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis
-            laboriosam quia at officiis quas reiciendis magnam illo iure ducimus
-            nostrum fugit quidem,
-          </p>
-        </div>
-      </div>
-      <div
-        class="lg:w-[500px] xl:w-[500px] lg:h-[690px] xl:h-[690px] w-[364px] h-[460px] border-primery1 border-2 rounded-[6px] overflow-hidden flex-none p-2"
-      >
-        <div class="w-full lg:h-[70%] xl:h-[70%] md:h-[313.27px] h-[313.27px]">
-          <img
-            src="https://i.pinimg.com/564x/83/7b/c4/837bc41a63410a8f852dbba37cc510a6.jpg"
-            class="rounded-[6px] w-full h-full object-cover"
-          />
-        </div>
-        <div class="w-full h-[30%] flex items-center lg:p-0 xl:p-0 md:p-5 p-5">
-          <p class="text-[16px] font-semibold font-NotoSansKhmer">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis
-            laboriosam quia at officiis quas reiciendis magnam illo iure ducimus
-            nostrum fugit quidem,
-          </p>
-        </div>
-      </div>
-      <div
-        class="lg:w-[500px] xl:w-[500px] lg:h-[690px] xl:h-[690px] w-[364px] h-[460px] border-primery1 border-2 rounded-[6px] overflow-hidden flex-none p-2"
-      >
-        <div class="w-full lg:h-[70%] xl:h-[70%] md:h-[313.27px] h-[313.27px]">
-          <img
-            src="https://img.freepik.com/free-vector/smart-home-management_52683-43342.jpg?t=st=1709626185~exp=1709629785~hmac=b8506b0a28dfa6a0b1e244b88a699d2d2b9b5a349f6c9afa2169e8550b4129d4&w=1380"
-            class="rounded-[6px] w-full h-full object-cover"
-          />
-        </div>
-        <div class="w-full h-[30%] flex items-center lg:p-0 xl:p-0 md:p-5 p-5">
-          <p class="text-[16px] font-semibold font-NotoSansKhmer">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis
-            laboriosam quia at officiis quas reiciendis magnam illo iure ducimus
-            nostrum fugit quidem,
-          </p>
-        </div>
-      </div>
-      <div
-        class="lg:w-[500px] xl:w-[500px] lg:h-[690px] xl:h-[690px] w-[364px] h-[460px] border-primery1 border-2 rounded-[6px] overflow-hidden flex-none p-2"
-      >
-        <div class="w-full lg:h-[70%] xl:h-[70%] md:h-[313.27px] h-[313.27px]">
-          <img
-            src="https://img.freepik.com/free-psd/juice-social-media-post_23-2148895904.jpg?t=st=1709626131~exp=1709629731~hmac=8e2dd7dc03cef6daf6006e988f26c57720a6b1367343f44d16884437d85c60a6&w=1380"
-            class="rounded-[6px] w-full h-full object-cover"
-          />
-        </div>
-        <div class="w-full h-[30%] flex items-center lg:p-0 xl:p-0 md:p-5 p-5">
-          <p class="text-[16px] font-semibold font-NotoSansKhmer">
+        <div
+          class="w-[90%] h-[35%] lg:p-3 xl:p-3 md:p-5 p-5 text-body bottom-20 right-5 group-hover:bottom-24 absolute bg-background/60 group-hover:bg-background/90 duration-300 backdrop-blur-md shadow-md rounded-md"
+        >
+          <h2 class="text-heading4 py-2 font-semibold">Product 1</h2>
+          <p
+            class="lg:text-[16px] xl:text-[16px] text-sm font-semibold font-NotoSansKhmer"
+          >
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis
             laboriosam quia at officiis quas reiciendis magnam illo iure ducimus
             nostrum fugit quidem,
@@ -192,7 +118,7 @@
   </div>
   <!-- partner -->
   <div
-    class="lg:w-[1920px] xl:w-[1920px] md:w-full w-full lg:h-[70vh] xl:h-[70vh] md:h-auto bg-primery1 bg-opacity-50 h-auto py-3"
+    class="lg:w-[1920px] xl:w-[1920px] md:w-full w-full lg:h-[80vh] xl:h-[80vh] md:h-auto bg-primery1 bg-opacity-50 h-auto py-4 relative"
   >
     <div class="w-full mt-4">
       <h1
@@ -202,7 +128,7 @@
       </h1>
     </div>
     <div
-      class="w-[80%] h-[90%] mx-auto grid grid-cols-3 items-center justify-center gap-3 mt-4"
+      class="lg:w-[70%] xl:w-[70%] w-[90%] h-[100%] xl:p-0 lg:p-0 md:p-0 p-2 mx-auto grid grid-cols-3 items-center justify-center gap-3 lg:mt-10 xl:mt-10 md:mt-10 mt-8 bg-background bg-opacity-50 backdrop-blur-md shadow-md rounded-[6px]"
     >
       <div
         class="w-full flex item-center justify-center lg:grayscale xl:grayscale lg:opacity-45 xl:opacity-45 lg:hover:opacity-100 lg:hover:grayscale-0 xl:hover:opacity-100 xl:hover:grayscale-0 duration-300"
@@ -259,57 +185,31 @@
 
   <!-- FAQS -->
   <div
-    class="lg:w-[1920px] xl:w-[1920px] md:w-full w-full lg:py-12 xl:py-12 md:py-2 py-2"
+    class="lg:w-[1920px] h-screen xl:w-[1920px] md:w-full w-full lg:py-16 xl:py-16 md:py-2 py-2 flex items-center justify-center"
   >
-    <div class="lg:w-[70%] xl:w-[70%] md:w-full w-full p-5 mx-auto">
-      <div class="w-full text-center py-4">
-        <h1
-          class="lg:text-Heading1 xl:text-Heading1 md:text-heading2 text-heading2"
-        >
-          FAQs
-        </h1>
-      </div>
+    <div
+      class="lg:w-[70%] xl:w-[70%] md:w-full w-full p-5 mx-auto animation-duration-300 animation-ease-in-out"
+    >
       <div
-        class="grid lg:grid-cols-3 xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4"
+        class="w-full lg:flex xl:flex md:block block items-center justify-between py-4"
       >
-        <div
-          class="lg:w-[400px] lg:h-[250px] xl:w-[400px] xl:h-[250px] md:w-[400px] md:h-[250px] w-full rounded-[6px] border-2 border-borderBody p-4"
-        >
-          <h1 class="text-heading2 text-textbody lg:py-0 xl:py-0 md:py-0 py-2">
-            Question 1
-          </h1>
-          <p class="text-body text-lebeltext font-semibold">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat
-            libero molestiae quaerat aspernatur alias earum aliquid sequi beatae
-            facilis. Soluta dolorem nemo dolore sit sed reprehenderit aut
-            accusantium animi laboriosam.
-          </p>
-        </div>
-        <div
-          class="lg:w-[400px] lg:h-[250px] xl:w-[400px] xl:h-[250px] md:w-[400px] md:h-[250px] w-full rounded-[6px] border-2 border-borderBody p-4"
-        >
-          <h1 class="text-heading2 text-textbody lg:py-0 xl:py-0 md:py-0 py-2">
-            Question 1
-          </h1>
-          <p class="text-body text-lebeltext font-semibold">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat
-            libero molestiae quaerat aspernatur alias earum aliquid sequi beatae
-            facilis. Soluta dolorem nemo dolore sit sed reprehenderit aut
-            accusantium animi laboriosam.
-          </p>
-        </div>
-        <div
-          class="lg:w-[400px] lg:h-[250px] xl:w-[400px] xl:h-[250px] md:w-[400px] md:h-[250px] w-full rounded-[6px] border-2 border-borderBody p-4"
-        >
-          <h1 class="text-heading2 text-textbody lg:py-0 xl:py-0 md:py-0 py-2">
-            Question 1
-          </h1>
-          <p class="text-body text-lebeltext font-semibold">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat
-            libero molestiae quaerat aspernatur alias earum aliquid sequi beatae
-            facilis. Soluta dolorem nemo dolore sit sed reprehenderit aut
-            accusantium animi laboriosam.
-          </p>
+        <img src="../assets/webiste/faq.png" alt="" />
+        <div class="grid grid-cols-1 gap-y-4 font-NotoSansKhmer">
+          <div
+            v-for="qanda in dataitem"
+            :key="qanda"
+            class="lg:w-[400px] lg:h-[250px] xl:w-[400px] xl:h-auto md:w-[400px] md:h-[250px] w-full rounded-[6px] duration-300 shadow-md text-heading3"
+          >
+            <Accordion>
+              <AccordionTab :header="qanda.question">
+                <p
+                  class="m-0 font-NotoSansKhmer text-textbody font-semibold text-body"
+                >
+                  {{ qanda.answer }}
+                </p>
+              </AccordionTab>
+            </Accordion>
+          </div>
         </div>
       </div>
     </div>
@@ -317,14 +217,36 @@
 </template>
 
 <script>
-import { Carousel, initTE } from "tw-elements";
-import { onMounted } from "vue";
+import { ref, onMounted } from "vue";
+import { getCollectionQuery } from "@/composible/getCollection";
+import Accordion from "primevue/accordion";
+import AccordionTab from "primevue/accordiontab";
 export default {
+  components: {
+    Accordion,
+    AccordionTab,
+  },
   setup() {
+    const dataitem = ref([]);
+    const getData = async () => {
+      try {
+        await getCollectionQuery(
+          "FAQ",
+          [],
+          (data) => {
+            dataitem.value = data;
+          },
+          true
+        );
+      } catch (error) {
+        console.error(error.message);
+      }
+    };
     onMounted(() => {
-      initTE({ Carousel });
+      getData();
     });
-    return {};
+
+    return { dataitem };
   },
 };
 </script>

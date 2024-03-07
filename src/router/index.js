@@ -20,52 +20,61 @@ import Product from '@/admin/Product.vue'
 import Partner from '@/admin/Partner.vue'
 import AnswerAndQuestion from '@/admin/AnswerAndQuestion.vue'
 import Htmleditor from '@/admin/Htmleditor.vue'
+import MainPage from '@/views/MainPage.vue'
 const routes = [
   {
-    path: '/',
+    path: '/home',
     name: 'home',
-    component: HomeView
-  },
-  {
-    path: '/aboutUs',
-    name: 'aboutUs',
-    component: AboutUsVue
-  },
-  {
-    path: '/contact',
-    name: 'contact',
-    component: ContactUsVue
-  },
-  {
-    path: '/productsandservices',
-    name: ProductAndServiceVue,
-    component: ProductAndServiceVue
-  },
-  {
-    path: '/systemdev',
-    name: 'systemdev',
-    component: SystemDevelopmentVue
-  }, {
-    path: '/websitedesigne',
-    name: 'websitedesigne',
-    component: WebsiteDevelopmentVue,
-  }, {
-    path: '/cms',
-    name: 'cms',
-    component: BusinessManagementSystemVue
-  },
-  {
-    path: '/websitedev',
-    name: 'websitedev',
-    component: WebsiteDevelopmentVue
-  }, {
-    path: '/BussinessManangerDevelopmentVue',
-    name: 'BussinessManangerDevelopmentVue',
-    component: BussinessManangerDevelopmentVue
-  }, {
-    path: '/systemdev/:id',
-    name: 'systemdetails',
-    component: SystemDetails
+    component: HomeView,
+    children: [
+      {
+        path: '/',
+        name: 'mainpage',
+        component: MainPage
+      },
+      {
+        path: '/aboutUs',
+        name: 'aboutUs',
+        component: AboutUsVue
+      },
+      {
+        path: '/contact',
+        name: 'contact',
+        component: ContactUsVue
+      },
+      {
+        path: '/productsandservices',
+        name: ProductAndServiceVue,
+        component: ProductAndServiceVue
+      },
+      {
+        path: '/systemdev',
+        name: 'systemdev',
+        component: SystemDevelopmentVue
+      }, {
+        path: '/websitedesigne',
+        name: 'websitedesigne',
+        component: WebsiteDevelopmentVue,
+      }, {
+        path: '/cms',
+        name: 'cms',
+        component: BusinessManagementSystemVue
+      },
+      {
+        path: '/websitedev',
+        name: 'websitedev',
+        component: WebsiteDevelopmentVue
+      }, {
+        path: '/BussinessManangerDevelopmentVue',
+        name: 'BussinessManangerDevelopmentVue',
+        component: BussinessManangerDevelopmentVue
+      }, {
+        path: '/systemdev/:id',
+        name: 'systemdetails',
+        component: SystemDetails
+      }
+
+    ]
   },
   {
     path: '/admin',

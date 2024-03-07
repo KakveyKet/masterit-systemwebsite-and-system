@@ -1,12 +1,8 @@
 <template>
-  <div class="w-full flex flex-col">
-    <div>
-      <NavbarVue />
-    </div>
-    <div class="mb-auot my-2">
-      <MainPageVue />
-    </div>
-    <div><Footer /></div>
+  <div>
+    <NavbarVue />
+    <router-view></router-view>
+    <Footer />
   </div>
 </template>
 

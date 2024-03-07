@@ -1,6 +1,5 @@
 <template>
   <div class="flex flex-col">
-    <div><NavbarVue /></div>
     <div class="w-full md:w-full xl:w-[1420px] lg:w-[1420px] mx-auto space-y-4">
       <div
         class="lg:mt-52 xl:mt-52 md:mt-32 mt-20 text-start lg:p-0 xl:p-0 p-3 md:p-3"
@@ -434,23 +433,5 @@
         </div>
       </div>
     </div>
-
-    <div><FooterVue /></div>
   </div>
 </template>
-
-<script>
-import FooterVue from "./Footer.vue";
-import NavbarVue from "./Navbar.vue";
-export default {
-  components: {
-    FooterVue,
-    NavbarVue,
-  },
-  setup() {
-    return {};
-  },
-};
-</script>
-
-<style lang="scss" scoped></style>

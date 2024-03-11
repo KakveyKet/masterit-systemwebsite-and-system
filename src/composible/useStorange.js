@@ -7,16 +7,14 @@ const useStorage = () => {
         const imageRef = storageRef(projectStorage, storagePath);
 
         try {
-            // Upload the file
             await uploadBytes(imageRef, imageFile);
 
-            // Get the download URL of the uploaded image
             const imageURL = await getDownloadURL(imageRef);
 
             return imageURL;
         } catch (error) {
             console.error('Error uploading image:', error);
-            throw error; // Propagate the error back to the caller
+            throw error;
         }
     };
 
@@ -24,13 +22,12 @@ const useStorage = () => {
         const imageRef = storageRef(projectStorage, storagePath);
 
         try {
-            // Delete the file
             await deleteObject(imageRef);
 
             console.log('Image deleted successfully.');
         } catch (error) {
             console.error('Error deleting image:', error);
-            throw error; // Propagate the error back to the caller
+            throw error;
         }
     };
 

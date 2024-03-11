@@ -4,10 +4,12 @@
   >
     <div
       v-motion-slide-top
-      class="w-[998px] h-[650px] bg-white shadow-sm rounded-lg p-5"
+      class="w-[998px] h-auto bg-white shadow-sm rounded-lg p-5"
     >
-      <div class="w-[95%] mx-auto flex justify-between">
-        <h1 class="text-primery1 text-Heading1">Add New Service</h1>
+      <div class="w-full mx-auto flex items-center justify-between mb-4">
+        <h1 class="text-primery1 text-heading3">
+          {{ datatoedit ? "Update Category" : "Add new Category" }}
+        </h1>
         <button
           @click="handleClose"
           class="w-10 h-10 rounded-full focus:border-primery1 focus:border flex items-center justify-center"
@@ -24,53 +26,64 @@
           </svg>
         </button>
       </div>
-      <form @submit.prevent="handleSubmit" class="w-full mt-5 space-y-4">
-        <div class="w-[90%] flex justify-between mx-auto">
-          <h1 class="text-heading2">Service Name</h1>
-          <input
-            v-model="categoryName"
-            type="text"
-            class="input"
-            placeholder="Service Name"
-          />
-        </div>
-        <div class="w-[90%] flex justify-between mx-auto">
-          <h1 class="text-heading2">Service Image</h1>
-          <div class="flex items-end justify-center">
-            <div class="flex items-end justify-between">
-              <div
-                class="w-[190px] h-[190px] relative hover:border hover:border-primery1 duration-300 rounded-sm hover:rounded-md"
-              >
-                <img
-                  class="w-full h-full rounded-md"
-                  src="../assets/upload.png"
-                  alt=""
-                />
-                <input
-                  type="file"
-                  @change="handleFileChange"
-                  class="opacity-0 top-12 w-full h-full absolute"
-                  required
-                />
-              </div>
+      <form
+        @submit.prevent="handleSubmit"
+        class="w-full space-y-2 items-center justify-center"
+      >
+        <div class="w-full flex gap-2">
+          <div class="w-full space-y-2">
+            <label class="text-body text-textbody"> Category Name </label>
+
+            <input
+              required
+              v-model="categoryName"
+              type="text"
+              class="input"
+              placeholder="Category Name"
+            />
+          </div>
+          <div class="w-full">
+            <div class="w-full space-y-2">
+              <label class="text-body text-textbody">
+                Category Description
+              </label>
+              <input
+                v-model="categoryDescription"
+                type="text"
+                class="input"
+                placeholder="Category Description"
+              />
             </div>
-            <!-- <button class="btndynamic bg-primery1 text-white">
-              Upload Image
-            </button> -->
           </div>
         </div>
-        <div class="w-[90%] flex justify-between mx-auto">
-          <h1 class="text-heading2">Descriptions</h1>
-          <textarea
-            rows="5"
-            type="text"
-            class="input"
-            placeholder="Descriptions"
-            v-model="categoryDescription"
+
+        <div
+          class="input h-[200px] border-2 border-primery1 border-dashed flex items-center justify-center relative overflow-hidden"
+        >
+          <h2
+            v-if="!img"
+            class="text-center text-lebeltext text-heading4 overflow-auto"
+          >
+            Category image
+          </h2>
+          <h2
+            v-else
+            class="text-center text-lebeltext text-heading4 w-full h-full overflow-auto text-nowrap"
+          >
+            {{ img.name }}
+          </h2>
+          <input
+            required
+            @change="handleFileChange"
+            type="file"
+            class="opacity-0 absolute h-full w-full"
           />
         </div>
-        <div class="w-[90%] flex justify-end mx-auto">
-          <button class="btndynamic bg-primery1 text-white">Add</button>
+
+        <div class="w-auto flex justify-end mx-auto mt-2">
+          <button class="btndynamic w-full bg-primery1 text-white">
+            {{ datatoedit ? "Update" : "Add New" }}
+          </button>
         </div>
       </form>
     </div>
@@ -80,10 +93,11 @@
 <script>
 import useCollection from "@/composible/useCollection";
 import useStorage from "../composible/useStorange";
-import { ref } from "vue";
-
+import { ref, onMounted } from "vue";
+import { timestamp } from "@/firebase/config";
 export default {
-  props: [""],
+  emit: ["AddSusccesfully", "UpddateSuccess"],
+  props: ["datatoedit"],
   setup(props, { emit }) {
     const { addDocs, removeDoc, updateDocs } = useCollection("categories");
     const { uploadImage } = useStorage();
@@ -98,12 +112,14 @@ export default {
       }
       const allowedExtensions = ["jpg", "png", "svg", "jpeg"];
       const extension = file.name.split(".").pop().toLowerCase();
+
       if (!allowedExtensions.includes(extension)) {
         console.error("Only jpg, png, svg, and jpeg files are allowed.");
         return;
       }
       img.value = file;
     };
+
     const handleSubmit = async () => {
       try {
         let imageURL = null;
@@ -119,14 +135,44 @@ export default {
           name: categoryName.value,
           description: categoryDescription.value,
           image: imageURL,
+          createdAt: timestamp(),
         };
-        await addDocs(productData);
-        handleClose();
+
+        if (props.datatoedit) {
+          const upadateSuccess = await updateDocs(
+            props.datatoedit?.id,
+            productData
+          );
+          if (upadateSuccess) {
+            emit("UpddateSuccess");
+          }
+        } else {
+          const success = await addDocs(productData);
+          if (success) {
+            emit("AddSusccesfully");
+          }
+        }
+
         console.log("Product operation successful");
       } catch (error) {
         console.error("Error performing product operation:", error);
       }
+      handleClear();
+      handleClose();
     };
+
+    const handleClear = () => {
+      categoryName.value = "";
+      categoryDescription.value = "";
+      img.value = null;
+    };
+    onMounted(() => {
+      if (props.datatoedit) {
+        categoryName.value = props.datatoedit.name;
+        categoryDescription.value = props.datatoedit.description;
+        img.value = props.datatoedit.imageURL;
+      }
+    });
     const handleClose = () => {
       emit("close");
     };

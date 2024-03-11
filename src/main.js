@@ -9,16 +9,28 @@ import PrimeVue from 'primevue/config';
 import Accordion from 'primevue/accordion';
 import AccordionTab from 'primevue/accordiontab';
 import { library } from '@fortawesome/fontawesome-svg-core'
-import StyleClass from 'primevue/styleclass';
-import { faUserSecret, faMask, faCircleQuestion, faHandshakeSimple, faCircleInfo, faFilter, faBullhorn } from '@fortawesome/free-solid-svg-icons'
-library.add(faUserSecret, faMask, faCircleQuestion, faHandshakeSimple, faCircleInfo, faFilter, faBullhorn)
+import { createNotivue } from 'notivue';
+import 'notivue/notifications.css'
+import 'notivue/animations.css'
+import { faUserSecret, faMask, faCircleQuestion, faHandshakeSimple, faCircleInfo, faFilter, faBullhorn, faTrash, faPenToSquare } from '@fortawesome/free-solid-svg-icons'
+library.add(faUserSecret, faMask, faCircleQuestion, faHandshakeSimple, faCircleInfo, faFilter, faBullhorn, faTrash, faPenToSquare)
 
 
 let app = createApp(App);
-app.directive('styleclass', StyleClass);
+const notivue = createNotivue({
+    position: 'top-center',
+    limit: 1,
+    enqueue: false,
+    notifications: {
+        global: {
+            duration: 2000
+        }
+    }
+})
 app.use(router);
 app.use(MotionPlugin);
 app.use(PrimeVue);
+app.use(notivue)
 app.component('font-awesome-icon', FontAwesomeIcon);
 app.component('Accordion', Accordion);
 app.component('AccordionTab', AccordionTab);

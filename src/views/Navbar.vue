@@ -95,12 +95,14 @@
         About Us
       </router-link>
       <router-link
+        @click.prevent="handleOpenMenuMobile"
         to="/productsandservices"
         class="text-heading4 text-primery1 font-bold hover:text-primery1/70 duration-300 px-[24px] py-[12px]"
       >
         Our Services
       </router-link>
       <router-link
+        @click.prevent="handleOpenMenuMobile"
         to="/contact"
         class="text-heading4 text-primery1 font-bold hover:text-primery1/70 duration-300 px-[24px] py-[12px]"
       >

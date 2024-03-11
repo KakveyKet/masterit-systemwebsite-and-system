@@ -3,7 +3,7 @@
     <div
       class="w-full max-w-[1920px] bg-background h-auto py-12 flex flex-col items-center justify-center"
     >
-      <div class="lg:mt-10 xl:mt-10 md:mt-32 mt-14 text-center">
+      <div class="lg:mt-10 xl:mt-10 md:mt-32 mt-0 text-center">
         <h1 class="font-NotoSansKhmer text-primery1">អំពីយើង</h1>
         <h1 class="text-primery1 font-NotoSansKhmer">About Us</h1>
       </div>
@@ -141,12 +141,12 @@
             </h1>
           </div>
           <div
-            class="absolute lg:w-[225px] lg:h-[180px] xl:w-[225px] xl:h-[180px] w-[110px] h-[90px] right-2 top-2"
+            class="absolute lg:w-[225px] lg:h-[180px] xl:w-[225px] xl:h-[180px] w-[130px] h-[90px] right-2 top-2"
           >
             <img src="../assets/image/qmark.png" />
           </div>
           <h1
-            class="lg:text-heading3 xl:text-heading3 text-[20px] md:text-[20px] text-primery1/50 font-bold font-NotoSansKhmer lg:text-center xl:text-center text-start md:text-start"
+            class="lg:text-heading3 xl:text-heading3 text-primery1/80 font-bold font-NotoSansKhmer lg:text-center xl:text-center text-start md:text-start mt-2"
           >
             ម៉ាស្ទ័រអាយធី ស៊ីស្ទឹម
           </h1>
@@ -177,7 +177,7 @@
         </div>
 
         <div
-          class="lg:w-[910px] xl:w-[910px] w-full mx-auto lg:h-[440px] xl:h-[440px] rounded-[6px] border-accent border-2 shadow-md relative p-5"
+          class="lg:w-[910px] xl:w-[910px] w-full mx-auto lg:h-[440px] xl:h-[440px] rounded-[6px] shadow-md relative p-5"
         >
           <div class="w-full">
             <h1
@@ -188,12 +188,12 @@
             </h1>
           </div>
           <div
-            class="absolute lg:w-[225px] lg:h-[180px] xl:w-[225px] xl:h-[180px] w-[110px] h-[90px] right-2 top-2"
+            class="absolute lg:w-[225px] lg:h-[180px] xl:w-[225px] xl:h-[180px] w-[130px] h-[90px] right-2 top-2"
           >
             <img src="../assets/image/warramty.png" />
           </div>
           <h1
-            class="lg:text-heading3 xl:text-heading3 text-[20px] md:text-[20px] text-accent font-bold font-NotoSansKhmer lg:text-center xl:text-center text-start md:text-start"
+            class="lg:text-heading3 xl:text-heading3 text-primery1/80 font-bold font-NotoSansKhmer lg:text-center xl:text-center text-start md:text-start mt-2"
           >
             តើម៉ាស្ទ័រអាយធី ស៊ីស្ទឹម <br />
             ធានាជូនអ្វីខ្លះ?

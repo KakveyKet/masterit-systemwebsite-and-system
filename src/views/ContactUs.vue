@@ -2,14 +2,17 @@
   <div class="w-full flex flex-col">
     <div class="lg:w-[1920px] xl:w-[1920px] md:w-full w-full h-auto">
       <div class="lg:w-[1420px] xl:w-[1420px] w-full md:w-full mx-auto">
-        <div class="lg:mt-10 xl:mt-10 md:mt-32 mt-14 text-center">
-          <div class="lg:mt-10 xl:mt-10 md:mt-32 mt-14 text-center py-4">
+        <div class="lg:mt-10 xl:mt-10 md:mt-32 mt-0 text-center">
+          <div class="lg:mt-10 xl:mt-10 md:mt-32 mt-0 text-center py-4">
             <h1 class="font-NotoSansKhmer text-primery1">ទំនាក់ទំនង</h1>
             <h1 class="text-primery1 font-NotoSansKhmer">(Our Contact)</h1>
           </div>
           <div class="w-full">
-            <h2 class="text-accent font-NotoSansKhmer text-heading4">
-              ជួយឱ្យអ្នកគ្រប់គ្រងអាជីវកម្មស្រួល និងរីកចម្រើនលឿន
+            <h2
+              class="text-textbody font-NotoSansKhmer font-bold text-heading4"
+            >
+              ជួយឱ្យអ្នកគ្រប់គ្រងអាជីវកម្មស្រួល <br />
+              និងរីកចម្រើនលឿន
             </h2>
             <div class="w-[70%] mx-auto py-4">
               <p class="text-body text-textbody text-start font-NotoSansKhmer">
@@ -25,7 +28,7 @@
       <div
         class="lg:w-[1420px] xl:w-[1420px] w-full grid lg:grid-cols-2 xl:grid-cols-2 md:grid-cols-2 grid-cols-1 mx-auto"
       >
-        <div class="lg:w-1/2 xl:w-1/2">
+        <div class="lg:w-1/2 xl:w-1/2 md:w-full">
           <div class="w-full flex items-center gap-2 p-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"

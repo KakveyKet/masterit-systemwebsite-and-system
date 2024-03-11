@@ -4,10 +4,12 @@
   >
     <div
       v-motion-slide-top
-      class="w-[998px] h-auto bg-white shadow-sm rounded-lg p-5"
+      class="w-[40%] h-auto bg-white shadow-sm rounded-lg p-5"
     >
-      <div class="w-[95%] mx-auto flex justify-between">
-        <h1 class="text-primery1 text-Heading1">Add New Parner</h1>
+      <div class="w-[95%] mx-auto flex items-center justify-between">
+        <h1 class="text-primery1 text-heading3">
+          {{ datatoedit ? "Update the partner" : "Add new partner" }}
+        </h1>
         <button
           @click="handleClose"
           class="w-10 h-10 rounded-full focus:border-primery1 focus:border flex items-center justify-center"
@@ -24,50 +26,41 @@
           </svg>
         </button>
       </div>
-      <form class="w-auto mt-5 space-y-2 items-center justify-center">
-        <div class="w-auto flex justify-between mx-auto">
-          <h1 class="text-heading2">Partner Company</h1>
-          <input type="text" class="input" placeholder="Service Name" />
-        </div>
-        <div class="w-auto flex items-center justify-between mx-auto">
-          <h1 class="text-heading2">Partner Logo</h1>
-
-          <div class="w-1/2 flex items-center justify-start mr-10">
-            <div
-              class="w-[190px] h-[190px] border rounded-[6px] relative hover:border hover:border-primery1 duration-300 hover:rounded-md"
-            >
-              <img
-                class="w-full h-full rounded-md"
-                src="../assets/upload.png"
-                alt=""
-              />
-              <input
-                type="file"
-                class="opacity-0 top-12 w-full h-full absolute"
-                name=""
-              />
-            </div>
-            <input
-              type="file"
-              class="opacity-0 w-16"
-              placeholder="Service Name"
-            />
-
-            <br />
-          </div>
-        </div>
-
-        <div class="w-auto flex justify-between mx-auto">
-          <h1 class="text-heading2">Descriptions</h1>
-          <textarea
-            rows="2"
+      <form
+        @submit.prevent="handleSubmit"
+        class="w-auto space-y-2 items-center justify-center"
+      >
+        <div class="w-full flex gap-2">
+          <input
+            v-model="partnername"
             type="text"
             class="input"
-            placeholder="Descriptions"
+            placeholder="Partner Company"
           />
+          <div class="input border-dashed relative">
+            <h2 class="text-center text-lebeltext text-heading4">
+              Company Logo
+            </h2>
+            <input
+              type="file"
+              @change="handleFileChange"
+              class="opacity-0 absolute w-full"
+              placeholder="company logo"
+            />
+          </div>
         </div>
+        <textarea
+          placeholder="Company Description"
+          class="input w-full"
+          cols="10"
+          rows="5"
+          v-model="partnerDetails"
+        ></textarea>
+
         <div class="w-auto flex justify-end mx-auto">
-          <button class="btndynamic bg-primery1 text-white">Add</button>
+          <button class="btndynamic w-full bg-primery1 text-white">
+            {{ datatoedit ? "Update" : "Add new" }}
+          </button>
         </div>
       </form>
     </div>
@@ -75,13 +68,99 @@
 </template>
 
 <script>
+import { ref, onMounted } from "vue";
+import useCollection from "@/composible/useCollection";
+import useStorage from "@/composible/useStorange";
+import { timestamp } from "@/firebase/config";
+
 export default {
-  props: [""],
+  props: ["datatoedit"],
+  emit: ["AddSusccesfully", "UpddateSuccess"],
   setup(props, { emit }) {
+    const { addDocs, removeDoc, updateDocs } = useCollection("partner");
+    const { uploadImage } = useStorage();
+    const handleFileChange = (event) => {
+      const file = event.target.files[0];
+      if (!file) {
+        console.error("No file selected.");
+        return;
+      }
+      const allowedExtensions = ["jpg", "png", "svg", "jpeg"];
+      const extension = file.name.split(".").pop().toLowerCase();
+
+      if (!allowedExtensions.includes(extension)) {
+        console.error("Only jpg, png, svg, and jpeg files are allowed.");
+        return;
+      }
+      img.value = file;
+    };
     const handleClose = () => {
       emit("close");
     };
-    return { handleClose };
+    const partnername = ref("");
+    const img = ref("");
+    const partnerDetails = ref("");
+    const handleSubmit = async () => {
+      try {
+        let imageURL = null;
+        if (img.value) {
+          if (img.value.size > 1024 * 1024) {
+            console.error("Image size exceeds 1MB limit.");
+            return;
+          }
+          const storagePath = `categories/${img.value.name}`;
+          imageURL = await uploadImage(storagePath, img.value);
+        }
+        const productData = {
+          name: partnername.value,
+          description: partnerDetails.value,
+          image: imageURL,
+          createdAt: timestamp(),
+        };
+
+        if (props.datatoedit) {
+          const upadateSuccess = await updateDocs(
+            props.datatoedit?.id,
+            productData
+          );
+          if (upadateSuccess) {
+            emit("UpddateSuccess");
+          }
+        } else {
+          const success = await addDocs(productData);
+          if (success) {
+            emit("AddSusccesfully");
+          }
+        }
+
+        console.log("Product operation successful");
+      } catch (error) {
+        console.error("Error performing product operation:", error);
+      }
+      handleClear();
+      handleClose();
+    };
+
+    const handleClear = () => {
+      partnername.value = "";
+      partnerDetails.value = "";
+      img.value = null;
+    };
+    onMounted(() => {
+      if (props.datatoedit) {
+        partnername.value = props.datatoedit.name;
+        partnerDetails.value = props.datatoedit.description;
+        img.value = props.datatoedit.image;
+      }
+    });
+
+    return {
+      handleClose,
+      partnername,
+      partnerDetails,
+      handleFileChange,
+      handleSubmit,
+    };
   },
 };
 </script>

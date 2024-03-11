@@ -1,13 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@import "notivue/notifications.css";
+@import "notivue/animations.css";
 @import url("https://fonts.googleapis.com/css2?family=Moul&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Moul&family=Noto+Sans+Khmer:wght@100..900&display=swap");
 
 @layer base {
   .Container {
-    @apply lg:w-[1920px] xl:w-[1920px] md:w-full w-full;
+    @apply lg:w-[1900px] xl:w-[1900px] md:w-full w-full mx-auto;
   }
   h1 {
     @apply lg:text-[40px] xl:text-[40px] md:text-[40px] text-[18px] font-bold lg:leading-[59px] xl:leading-[59px] md:leading-[59px] leading-[24px];
@@ -47,6 +48,25 @@
     @apply rounded-[6px] px-[24px] py-[12px] border border-borderBody w-[386px] hover:border-primery1 focus:shadow-md flex items-center;
   }
   .input {
-    @apply rounded-[6px] px-[24px] py-[12px] border border-borderBody w-[520px] placeholder:text-heading4 hover:border-primery1 focus:shadow-md flex items-center;
+    @apply rounded-[6px] px-[24px] py-[12px] border-2 duration-300 outline-none border-borderBody placeholder:text-heading4 w-full hover:border-primery1 focus:shadow-md flex items-center;
+  }
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+@layer base {
+  tr:nth-child(even) {
+    @apply bg-primery1/25  text-textbody;
   }
 }

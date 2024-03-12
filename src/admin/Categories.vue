@@ -1,5 +1,5 @@
 <template>
-  <div class="Container bg-background h-auto font-NotoSansKhmer relative">
+  <div class="w-full bg-background h-auto font-NotoSansKhmer relative mx-auto">
     <Navbar />
 
     <div class="Container h-[72px] flex items-center ml-4">
@@ -170,7 +170,7 @@
                     >
                       <button
                         @click="handleAddEditData(data)"
-                        class="w-[36px] flex items-center justify-center h-[36px] bg-accent rounded-[6px]"
+                        class="w-[36px] flex items-center justify-center h-[36px] bg-accent rounded-[6px] hover:bg-accent/60 active:bg-accent/95 duration-300"
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -188,7 +188,7 @@
                       </button>
                       <button
                         @click="handleDelete(data.id)"
-                        class="w-[36px] flex items-center justify-center h-[36px] bg-red-500 rounded-[6px]"
+                        class="w-[36px] flex items-center justify-center h-[36px] bg-red-500 rounded-[6px] hover:bg-red-500/60 active:bg-red-500/95 duration-300"
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -298,6 +298,7 @@
       :datatoedit="datatoedit"
     />
   </div>
+  <FooterVue />
 </template>
 
 <script>
@@ -308,6 +309,7 @@ import AddCategory from "./AddCategory.vue";
 import { getCollectionQuery } from "@/composible/getCollection";
 import { push, Notivue, Notification } from "notivue";
 import useCollection from "@/composible/useCollection";
+import FooterVue from "./Footer.vue";
 export default {
   components: {
     Navbar,
@@ -318,6 +320,7 @@ export default {
     MenuButton,
     MenuItems,
     MenuItem,
+    FooterVue,
   },
   setup() {
     const dataitem = ref([]);

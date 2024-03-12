@@ -2,7 +2,7 @@
   <div class="flex flex-col">
     <div class="w-full md:w-full xl:w-[1420px] lg:w-[1420px] mx-auto space-y-4">
       <div
-        class="lg:mt-52 xl:mt-52 md:mt-32 mt-20 text-start lg:p-0 xl:p-0 p-3 md:p-3"
+        class="lg:mt-52 xl:mt-52 md:mt-32 mt-0 text-start lg:p-0 xl:p-0 p-3 md:p-3"
       >
         <h1 class="font-NotoSansKhmer text-primery1">
           អភិវឌ្ឍន៍ប្រព័ន្ធ (System Development)
@@ -93,7 +93,7 @@
 
           <div class="group relative w-full">
             <div
-              class="absolute h-full w-full overflow-hidden rounded-md group-hover:bg-opacity-55"
+              class="absolute lg:block xl:block md:block hidden h-full w-full overflow-hidden rounded-md group-hover:bg-opacity-55"
             >
               <div
                 class="absolute top-0 h-10 w-10 overflow-auto bg-opacity-0 duration-300 group-hover:h-full group-hover:w-full group-hover:bg-black/50"
@@ -120,6 +120,27 @@
                   stroke-width="1.5"
                   stroke="currentColor"
                   class="h-12 w-12 cursor-pointer text-white opacity-0 delay-500 duration-300 group-hover:translate-y-[-50px] group-hover:opacity-100"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div
+              class="absolute lg:hidden xl:hidden md:hidden group py-3 group-active:bg-primery1/80 cursor-pointer bg-primery1 bottom-0 w-full bg-opacity-50 rounded-bl-[6px] rounded-br-[6px] flex items-center justify-end"
+            >
+              <div class="w-full relative">
+                <h2 class="text-body text-center text-background">Product 1</h2>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-8 h-8 text-white absolute top-0 right-3 group-hover:translate-x-2 duration-300"
                 >
                   <path
                     stroke-linecap="round"

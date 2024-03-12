@@ -1,5 +1,5 @@
 <template>
-  <div class="Container bg-background h-screen font-NotoSansKhmer relative">
+  <div class="w-[1900px] bg-background h-auto font-NotoSansKhmer relative">
     <div class="w-full">
       <Navbar />
     </div>
@@ -156,13 +156,7 @@
                     </h2>
                   </td>
                   <td>
-                    <div
-                      class="grid grid-cols-2"
-                      v-for="(features, index) in data.feature"
-                      :key="index"
-                    >
-                      <img class="w-20 h-20" :src="features.image" />
-                    </div>
+                    <img class="w-20 h-20" :src="data.image" />
                   </td>
                   <td>
                     <h2>{{ data.descritpts }}</h2>
@@ -321,6 +315,7 @@
       :datatoedit="datatoedit"
     />
   </div>
+  <FooterVue />
 </template>
 
 <script>
@@ -332,6 +327,7 @@ import AddProductVue from "./AddProduct.vue";
 import { push, Notivue, Notification } from "notivue";
 import useCollection from "@/composible/useCollection";
 import { getCollectionQuery } from "@/composible/getCollection";
+import FooterVue from "./Footer.vue";
 export default {
   components: {
     Navbar,
@@ -342,8 +338,11 @@ export default {
     MenuButton,
     MenuItems,
     MenuItem,
+    FooterVue,
   },
   setup() {
+    const { addDocs, removeDoc, updateDocs } = useCollection("products");
+
     const dataitem = ref([]);
     let sortedbyASC = ref(true);
 
@@ -450,7 +449,7 @@ export default {
       isDeleteOpen.value = !isDeleteOpen.value;
     };
     const deleteProduct = async () => {
-      isDeleteOpen.value = true;
+      isDeleteOpen.value = false;
 
       try {
         if (!productId.value) {

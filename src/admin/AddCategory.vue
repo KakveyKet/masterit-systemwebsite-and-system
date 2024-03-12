@@ -73,7 +73,6 @@
             {{ img.name }}
           </h2>
           <input
-            required
             @change="handleFileChange"
             type="file"
             class="opacity-0 absolute h-full w-full"
@@ -123,13 +122,20 @@ export default {
     const handleSubmit = async () => {
       try {
         let imageURL = null;
-        if (img.value) {
+
+        if (img.value && img.value !== props.datatoedit?.image) {
+          // Check image size
           if (img.value.size > 1024 * 1024) {
             console.error("Image size exceeds 1MB limit.");
             return;
           }
+
+          // Upload image
           const storagePath = `categories/${img.value.name}`;
           imageURL = await uploadImage(storagePath, img.value);
+        } else {
+          // If img.value hasn't changed or is not provided, retain the existing image URL
+          imageURL = props.datatoedit?.image;
         }
         const productData = {
           name: categoryName.value,

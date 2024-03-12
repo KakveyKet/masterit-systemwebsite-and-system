@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full lg:w-[1920px] xl:w-[1920px] md:w-full bg-primery1 lg:h-[800px] xl:h-[800px] md:h-auto h-auto flex items-center justify-center font-NotoSansKhmer"
+    class="w-full lg:w-[1920px] xl:w-full md:w-full bg-primery1 lg:h-[800px] xl:h-[800px] md:h-auto h-auto flex items-center justify-center font-NotoSansKhmer"
   >
     <div class="w-[90%] md:w-full lg:w-[1420px] xl:w-[1420px]">
       <div class="py-4 lg:mt-0 xl:mt-0 mt-12">
@@ -197,7 +197,7 @@
         <div class="w-[400px]">
           <img
             src="../assets/image/image 5.png"
-            class="w-[200px] h-[200px] mx-auto"
+            class="w-[140px] h-[140px] mx-auto"
             alt=""
           />
           <div class="w-full text-center">

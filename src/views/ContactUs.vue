@@ -1,6 +1,6 @@
 <template>
   <div class="w-full flex flex-col">
-    <div class="lg:w-[1920px] xl:w-[1920px] md:w-full w-full h-auto">
+    <div class="lg:w-[1920px] xl:w-full md:w-full w-full h-auto">
       <div class="lg:w-[1420px] xl:w-[1420px] w-full md:w-full mx-auto">
         <div class="lg:mt-10 xl:mt-10 md:mt-32 mt-0 text-center">
           <div class="lg:mt-10 xl:mt-10 md:mt-32 mt-0 text-center py-4">

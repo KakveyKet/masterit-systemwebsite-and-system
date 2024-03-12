@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full lg:w-[1920px] xl:w-[1920px] md:full bg-primery1 h-screen relative p-2 lg:flex xl:flex md:hidden hidden overflow-hidden"
+    class="w-full lg:w-[1920px] xl:w-full md:full bg-primery1 h-screen relative p-2 lg:flex xl:flex md:hidden hidden overflow-hidden"
   >
     <div class="w-[50%] h-full flex flex-col items-center justify-center">
       <div class="w-[70%] ml-[12rem]">
@@ -76,7 +76,7 @@
   </div>
   <!-- out standing -->
   <div
-    class="lg:w-[1920px] bg-background lg:h-[95vh] xl:h-auto md:h-auto h-auto py-6"
+    class="lg:w-full bg-background lg:h-[95vh] xl:h-auto md:h-auto h-auto py-6"
   >
     <div class="lg:w-[1500px] xl:w-[1500px] md:w-full w-full mx-auto py-4">
       <p
@@ -86,10 +86,10 @@
       </p>
     </div>
     <div
-      class="lg:w-[1500px] xl:w-[1500px] md:w-full w-full mx-auto scrollbar-hide overflow-auto gap-3 flex lg:p-0 xl:p-0 md:p-3 p-3"
+      class="lg:w-[1500px] xl:w-[1500px] md:w-full w-full mx-auto scrollbar-hide overflow-auto gap-6 flex lg:p-0 xl:p-0 md:p-3 p-3"
     >
       <div
-        v-for="cart in 10"
+        v-for="cart in products"
         :key="cart"
         class="lg:w-[400px] xl:w-[400px] lg:h-[600px] xl:h-[600px] w-[364px] h-[450px] rounded-[6px] overflow-hidden flex-none relative group"
       >
@@ -97,20 +97,18 @@
           class="w-full lg:h-[70%] xl:h-[70%] md:h-[313.27px] h-[313.27px] shadow-md group"
         >
           <img
-            src="https://i.pinimg.com/564x/78/51/7f/78517fcfb8ece6c7bd5b40fe444c4895.jpg"
+            :src="cart.image"
             class="rounded-[6px] w-full h-full object-cover"
           />
         </div>
         <div
           class="w-[90%] h-[35%] lg:p-3 xl:p-3 md:p-5 p-5 text-body bottom-20 right-5 group-hover:bottom-24 absolute bg-background/60 group-hover:bg-background/90 duration-300 backdrop-blur-md shadow-md rounded-md"
         >
-          <h2 class="text-heading4 py-2 font-semibold">Product 1</h2>
+          <h2 class="text-heading4 py-2 font-semibold">{{ cart.name }}</h2>
           <p
             class="lg:text-[16px] xl:text-[16px] text-sm font-semibold font-NotoSansKhmer"
           >
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis
-            laboriosam quia at officiis quas reiciendis magnam illo iure ducimus
-            nostrum fugit quidem,
+            {{ cart.descritpts }}
           </p>
         </div>
       </div>
@@ -118,7 +116,7 @@
   </div>
   <!-- partner -->
   <div
-    class="lg:w-[1920px] xl:w-[1920px] md:w-full w-full lg:h-[80vh] xl:h-[80vh] md:h-auto bg-primery1 bg-opacity-50 h-auto py-4 relative"
+    class="lg:w-[1920px] xl:w-full md:w-full w-full lg:h-[80vh] xl:h-[80vh] md:h-auto bg-primery1 bg-opacity-50 h-auto py-4 relative"
   >
     <div class="w-full mt-4">
       <h1
@@ -185,7 +183,7 @@
 
   <!-- FAQS -->
   <div
-    class="lg:w-[1920px] h-screen xl:w-[1920px] md:w-full w-full lg:py-16 xl:py-16 md:py-2 py-2 flex items-center justify-center"
+    class="lg:w-[1920px] h-screen xl:w-full md:w-full w-full lg:py-16 xl:py-16 md:py-2 py-2 flex items-center justify-center"
   >
     <div
       class="lg:w-[70%] xl:w-[70%] md:w-full w-full p-5 mx-auto animation-duration-300 animation-ease-in-out"
@@ -228,6 +226,7 @@ export default {
   },
   setup() {
     const dataitem = ref([]);
+    const products = ref([]);
     const getData = async () => {
       try {
         await getCollectionQuery(
@@ -244,9 +243,24 @@ export default {
     };
     onMounted(() => {
       getData();
+      getDataProduct();
     });
+    const getDataProduct = async () => {
+      try {
+        await getCollectionQuery(
+          "products",
+          [],
+          (data) => {
+            products.value = data;
+          },
+          true
+        );
+      } catch (error) {
+        console.error(error.message);
+      }
+    };
 
-    return { dataitem };
+    return { dataitem, products };
   },
 };
 </script>

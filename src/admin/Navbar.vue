@@ -1,5 +1,5 @@
 <template>
-  <div class="w-ful z-[90] h-[110px] shadow-md flex font-NotoSansKhmer">
+  <div class="w-full z-[90] h-[110px] shadow-md flex font-NotoSansKhmer">
     <div class="items-center justify-between w-[98%] flex mx-auto">
       <div class="flex items-center space-x-4">
         <div>

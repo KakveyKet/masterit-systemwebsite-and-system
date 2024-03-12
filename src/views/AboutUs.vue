@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col">
     <div
-      class="w-full max-w-[1920px] bg-background h-auto py-12 flex flex-col items-center justify-center"
+      class="w-full max-w-full bg-background h-auto py-12 flex flex-col items-center justify-center"
     >
       <div class="lg:mt-10 xl:mt-10 md:mt-32 mt-0 text-center">
         <h1 class="font-NotoSansKhmer text-primery1">អំពីយើង</h1>

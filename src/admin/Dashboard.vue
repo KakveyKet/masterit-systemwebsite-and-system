@@ -67,13 +67,25 @@
       </div>
     </div>
   </div>
+  <div>
+    <div
+      class="w-full bg-background h-8 flex items-center fixed bottom-2 border-t-2 border-primery1 z-50"
+    >
+      <h2
+        class="text-body uppercase font-bold ml-4 text-primery1 font-NotoSansKhmer"
+      >
+        Master IT Systen
+      </h2>
+    </div>
+  </div>
 </template>
 
 <script>
 import { useRouter } from "vue-router";
 import NavbarVue from "./Navbar.vue";
+import FooterVue from "../admin/Footer.vue";
 export default {
-  components: { NavbarVue },
+  components: { NavbarVue, FooterVue },
   setup() {
     const router = useRouter();
     const handleGotoService = () => {

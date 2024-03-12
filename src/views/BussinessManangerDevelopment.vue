@@ -1,9 +1,7 @@
 <template>
   <div class="flex flex-col">
     <div>
-      <div
-        class="w-full md:w-full xl:w-[1420px] lg:w-[1420px] mx-auto space-y-4"
-      >
+      <div class="w-full md:w-full xl:w-full lg:w-[1420px] mx-auto space-y-4">
         <div class="lg:mt-10 xl:mt-10 md:mt-32 mt-14 text-start py-4">
           >
           <h1 class="font-NotoSansKhmer text-primery1">

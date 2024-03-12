@@ -10,9 +10,9 @@
   >
     <div
       :class="{
-        'duration-300 w-full bg-transparent max-w-[1420px] flex items-center justify-between mx-auto':
+        'duration-300 w-full bg-transparent max-w-[1420px] flex items-center justify-between mx-auto z-[90]':
           isScrolled,
-        'w-full duration-300 bg-transparent max-w-[1420px] flex items-center justify-between mx-auto':
+        'w-full duration-300 bg-transparent max-w-[1420px] flex items-center justify-between mx-auto z-[90]':
           !isScrolled,
       }"
     >
@@ -73,13 +73,13 @@
   </div>
   <div
     :class="{
-      '-translate-x-[100%] duration-300 sticky w-full bg-background h-0  z-[100]':
+      '-translate-x-[100%] duration-300 sticky w-full bg-background h-0 flex justify-end  z-[100] ':
         isOpenMenuMobile,
-      ' w-full bg-background duration-300 sticky top-16 h-screen p-5 z-[100] right-0':
+      ' w-full bg-background duration-300 sticky top-16 h-screen p-5 z-[100] flex justify-end right-0 ':
         !isOpenMenuMobile,
     }"
   >
-    <ul class="w-42 flex flex-col font-NotoSansKhmer">
+    <ul class="w-[180px] text-end flex flex-col font-NotoSansKhmer">
       <router-link
         to="/"
         @click.prevent="handleOpenMenuMobile"

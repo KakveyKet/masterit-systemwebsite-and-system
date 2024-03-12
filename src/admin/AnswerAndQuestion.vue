@@ -1,13 +1,13 @@
 <template>
-  <div class="Container bg-background h-auto font-NotoSansKhmer relative">
-    <div class="w-full bg-background">
+  <div class="w-[1900px] bg-background h-auto font-NotoSansKhmer relative">
+    <div class="w-[full]">
       <Navbar />
     </div>
-    <div class="Container h-[72px] flex items-center ml-4">
+    <div class="w-full h-[72px] flex items-center ml-4">
       <h2 class="text-heading3 font-semibold">FAQ</h2>
     </div>
     <div
-      class="Container border rounded-[6px] shadow-md bg-background h-[740px] p-3"
+      class="w-full border rounded-[6px] shadow-md bg-background h-[740px] p-3"
     >
       <div class="w-full p-3 flex items-center justify-between">
         <router-link to="/admin" class="flex items-center gap-4">
@@ -314,10 +314,14 @@
       @UpddateSuccess="handleUpdateSuccess"
     />
   </div>
+  <div>
+    <Footer />
+  </div>
 </template>
 
 <script>
 import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/vue";
+import Footer from "./Footer.vue";
 import Navbar from "./Navbar.vue";
 import { onMounted, ref, computed } from "vue";
 import AddQandAVue from "./AddQandA.vue";
@@ -334,6 +338,7 @@ export default {
     MenuButton,
     MenuItems,
     MenuItem,
+    Footer,
   },
   setup() {
     const { addDocs, removeDoc, updateDocs } = useCollection("FAQ");

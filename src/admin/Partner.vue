@@ -1,8 +1,6 @@
 <template>
-  <div class="Container bg-background h-auto font-NotoSansKhmer relative">
-    <div class="w-full bg-background">
-      <Navbar />
-    </div>
+  <div class="w-full bg-background h-auto font-NotoSansKhmer relative">
+    <Navbar />
     <div class="Container h-[72px] flex items-center ml-4">
       <h2 class="text-heading3 font-semibold">Partner</h2>
     </div>
@@ -187,7 +185,7 @@
                     >
                       <button
                         @click="handleAddEditData(data)"
-                        class="w-[36px] flex items-center justify-center h-[36px] bg-accent rounded-[6px]"
+                        class="w-[36px] flex items-center justify-center h-[36px] bg-accent rounded-[6px] hover:bg-accent/60 active:bg-accent/95 duration-300"
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -205,7 +203,7 @@
                       </button>
                       <button
                         @click="handleDelete(data.id)"
-                        class="w-[36px] flex items-center justify-center h-[36px] bg-red-500 rounded-[6px]"
+                        class="w-[36px] flex items-center justify-center h-[36px] bg-red-500 rounded-[6px] hover:bg-red-500/60 active:bg-red-500/95 duration-300"
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -315,9 +313,11 @@
       :datatoedit="datatoedit"
     />
   </div>
+  <Footer />
 </template>
 
 <script>
+import Footer from "./Footer.vue";
 import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/vue";
 import { getCollectionQuery } from "@/composible/getCollection";
 import useCollection from "@/composible/useCollection";
@@ -336,6 +336,7 @@ export default {
     MenuButton,
     MenuItems,
     MenuItem,
+    Footer,
   },
   setup() {
     const dataitem = ref([]);

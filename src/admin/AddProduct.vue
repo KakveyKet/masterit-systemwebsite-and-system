@@ -75,6 +75,30 @@
                 </div>
               </div>
             </div>
+            <div class="w-full">
+              <div
+                class="input border-2 w-full border-primery1 border-dashed relative overflow-hidden"
+              >
+                <h2
+                  v-if="!productImage"
+                  class="text-center text-lebeltext text-heading4 overflow-auto"
+                >
+                  Product image
+                </h2>
+                <h2
+                  v-else
+                  class="text-center text-lebeltext text-heading4 w-full h-full overflow-auto text-nowrap"
+                >
+                  {{ productImage.name }}
+                </h2>
+                <input
+                  required
+                  @change="handleFileChangeProductImage"
+                  type="file"
+                  class="opacity-0 absolute w-full"
+                />
+              </div>
+            </div>
             <div class="w-full bg-primery1/10 p-2 rounded-[6px] space-y-2">
               <form @submit.prevent="handleAddFeature" class="space-y-2">
                 <div class="flex w-full gap-2">
@@ -92,7 +116,7 @@
                       v-if="!img"
                       class="text-center text-lebeltext text-heading4 overflow-auto"
                     >
-                      Product image
+                      Feature image
                     </h2>
                     <h2
                       v-else
@@ -194,7 +218,6 @@
                 <td>Image</td>
                 <th class="text-center">Action</th>
               </tr>
-
               <tr v-for="(feature, index) in productFeatures" :key="index">
                 <td>{{ feature.title }}</td>
                 <td>{{ feature.details }}</td>
@@ -277,6 +300,7 @@ export default {
     const { uploadImage } = useStorage();
     const productName = ref("");
     const productDesscript = ref("");
+    const productImage = ref(null);
 
     const productFeatures = ref([]);
     const productFeaturesTitle = ref("");
@@ -303,16 +327,39 @@ export default {
       }
       img.value = file;
     };
+
+    const handleFileChangeProductImage = (event) => {
+      const file = event.target.files[0];
+      if (!file) {
+        console.error("No file selected.");
+        return;
+      }
+      const allowedExtensions = ["jpg", "png", "svg", "jpeg"];
+      const extension = file.name.split(".").pop().toLowerCase();
+
+      if (!allowedExtensions.includes(extension)) {
+        console.error("Only jpg, png, svg, and jpeg files are allowed.");
+        return;
+      }
+      productImage.value = file;
+    };
     const handleSubmit = async () => {
       try {
         let imageURL = null;
-        if (img.value) {
+
+        if (img.value && img.value !== props.datatoedit?.image) {
+          // Check image size
           if (img.value.size > 1024 * 1024) {
             console.error("Image size exceeds 1MB limit.");
             return;
           }
-          const storagePath = `product/${img.value.name}`;
+
+          // Upload image
+          const storagePath = `feature/${img.value.name}`;
           imageURL = await uploadImage(storagePath, img.value);
+        } else {
+          // If img.value hasn't changed or is not provided, retain the existing image URL
+          imageURL = props.datatoedit?.image;
         }
         const productData = {
           name: productName.value,
@@ -348,13 +395,18 @@ export default {
     const handleAddFeature = async () => {
       try {
         let imageURL = null;
-        if (img.value) {
+
+        if (img.value && img.value !== props.datatoedit?.image) {
           if (img.value.size > 1024 * 1024) {
             console.error("Image size exceeds 1MB limit.");
             return;
           }
-          const storagePath = `feature/${img.value.name}`;
+
+          const storagePath = `categories/${img.value.name}`;
           imageURL = await uploadImage(storagePath, img.value);
+        } else {
+          // If img.value hasn't changed or is not provided, retain the existing image URL
+          imageURL = props.datatoedit?.image;
         }
         const newFeature = {
           title: productFeaturesTitle.value,
@@ -417,6 +469,8 @@ export default {
       push,
       productDesscript,
       ispending,
+      handleFileChangeProductImage,
+      productImage,
     };
   },
 };

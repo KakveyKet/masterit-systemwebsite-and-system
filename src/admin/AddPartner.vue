@@ -39,7 +39,7 @@
           />
           <div class="input border-dashed relative">
             <h2 class="text-center text-lebeltext text-heading4">
-              Company Logo
+              {{ datatoedit ? img : "Company Logo" }}
             </h2>
             <input
               type="file"
@@ -103,13 +103,20 @@ export default {
     const handleSubmit = async () => {
       try {
         let imageURL = null;
-        if (img.value) {
+
+        if (img.value && img.value !== props.datatoedit?.image) {
+          // Check image size
           if (img.value.size > 1024 * 1024) {
             console.error("Image size exceeds 1MB limit.");
             return;
           }
+
+          // Upload image
           const storagePath = `categories/${img.value.name}`;
           imageURL = await uploadImage(storagePath, img.value);
+        } else {
+          // If img.value hasn't changed or is not provided, retain the existing image URL
+          imageURL = props.datatoedit?.image;
         }
         const productData = {
           name: partnername.value,
@@ -123,6 +130,9 @@ export default {
             props.datatoedit?.id,
             productData
           );
+          console.log("====================================");
+          console.log(productData);
+          console.log("====================================");
           if (upadateSuccess) {
             emit("UpddateSuccess");
           }
@@ -140,12 +150,6 @@ export default {
       handleClear();
       handleClose();
     };
-
-    const handleClear = () => {
-      partnername.value = "";
-      partnerDetails.value = "";
-      img.value = null;
-    };
     onMounted(() => {
       if (props.datatoedit) {
         partnername.value = props.datatoedit.name;
@@ -153,6 +157,11 @@ export default {
         img.value = props.datatoedit.image;
       }
     });
+    const handleClear = () => {
+      partnername.value = "";
+      partnerDetails.value = "";
+      img.value = null;
+    };
 
     return {
       handleClose,
@@ -160,6 +169,7 @@ export default {
       partnerDetails,
       handleFileChange,
       handleSubmit,
+      img,
     };
   },
 };

@@ -47,51 +47,11 @@
         <div
           class="w-full lg:columns-3 xl:columns-3 md:columns-2 columns-1 space-y-4 py-4"
         >
-          <div class="group relative w-full">
-            <router-link
-              to="/systemdev/:id"
-              class="absolute h-full w-full overflow-hidden rounded-md group-hover:bg-opacity-55"
-            >
-              <div
-                class="absolute top-0 h-10 w-10 overflow-auto bg-opacity-0 duration-300 group-hover:h-full group-hover:w-full group-hover:bg-black/50"
-              ></div>
-
-              <div class="flex justify-center items-end w-full h-[80%]">
-                <div
-                  class="text-center text-2xl font-semibold text-white overflow-hidden opacity-0 group-hover:opacity-100"
-                >
-                  <p
-                    class="translate-y-10 group-hover:translate-y-0 duration-300"
-                  >
-                    product 1
-                  </p>
-                </div>
-              </div>
-              <div
-                class="flex items-end justify-center group-hover:h-[100px] opacity-0 group-hover:opacity-100"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="h-12 w-12 cursor-pointer text-white opacity-0 delay-500 duration-300 group-hover:translate-y-[-50px] group-hover:opacity-100"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-                  />
-                </svg>
-              </div>
-            </router-link>
-            <div class="w-full h-full">
-              <img class="w-full rounded-md" src="../assets/system/1.png" />
-            </div>
-          </div>
-
-          <div class="group relative w-full">
+          <div
+            v-for="products in dataitem"
+            :key="products"
+            class="group relative w-full"
+          >
             <div
               class="absolute lg:block xl:block md:block hidden h-full w-full overflow-hidden rounded-md group-hover:bg-opacity-55"
             >
@@ -106,11 +66,16 @@
                   <p
                     class="translate-y-10 group-hover:translate-y-0 duration-300"
                   >
-                    product 1
+                    {{ products.name }}
                   </p>
                 </div>
               </div>
-              <div
+              <router-link
+                v-if="products && products.id"
+                :to="{
+                  name: 'systemdetails',
+                  params: { id: products.id },
+                }"
                 class="flex items-end justify-center group-hover:h-[100px] opacity-0 group-hover:opacity-100"
               >
                 <svg
@@ -127,13 +92,15 @@
                     d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
                   />
                 </svg>
-              </div>
+              </router-link>
             </div>
             <div
               class="absolute lg:hidden xl:hidden md:hidden group py-3 group-active:bg-primery1/80 cursor-pointer bg-primery1 bottom-0 w-full bg-opacity-50 rounded-bl-[6px] rounded-br-[6px] flex items-center justify-end"
             >
               <div class="w-full relative">
-                <h2 class="text-body text-center text-background">Product 1</h2>
+                <h2 class="text-body text-center text-background">
+                  {{ products.name }}
+                </h2>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -151,304 +118,7 @@
               </div>
             </div>
             <div class="w-full h-full">
-              <img class="w-full rounded-md" src="../assets/system/2.jpg" />
-            </div>
-          </div>
-          <div class="group relative w-full">
-            <div
-              class="absolute h-full w-full overflow-hidden rounded-md group-hover:bg-opacity-55"
-            >
-              <div
-                class="absolute top-0 h-10 w-10 overflow-auto bg-opacity-0 duration-300 group-hover:h-full group-hover:w-full group-hover:bg-black/50"
-              ></div>
-
-              <div class="flex justify-center items-end w-full h-[80%]">
-                <div
-                  class="text-center text-2xl font-semibold text-white overflow-hidden opacity-0 group-hover:opacity-100"
-                >
-                  <p
-                    class="translate-y-10 group-hover:translate-y-0 duration-300"
-                  >
-                    product 1
-                  </p>
-                </div>
-              </div>
-              <div
-                class="flex items-end justify-center group-hover:h-[100px] opacity-0 group-hover:opacity-100"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="h-12 w-12 cursor-pointer text-white opacity-0 delay-500 duration-300 group-hover:translate-y-[-50px] group-hover:opacity-100"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-                  />
-                </svg>
-              </div>
-            </div>
-            <div class="w-full h-full">
-              <img class="w-full rounded-md" src="../assets/system/3.png" />
-            </div>
-          </div>
-          <div class="group relative w-full">
-            <div
-              class="absolute h-full w-full overflow-hidden rounded-md group-hover:bg-opacity-55"
-            >
-              <div
-                class="absolute top-0 h-10 w-10 overflow-auto bg-opacity-0 duration-300 group-hover:h-full group-hover:w-full group-hover:bg-black/50"
-              ></div>
-
-              <div class="flex justify-center items-end w-full h-[80%]">
-                <div
-                  class="text-center text-2xl font-semibold text-white overflow-hidden opacity-0 group-hover:opacity-100"
-                >
-                  <p
-                    class="translate-y-10 group-hover:translate-y-0 duration-300"
-                  >
-                    product 1
-                  </p>
-                </div>
-              </div>
-              <div
-                class="flex items-end justify-center group-hover:h-[100px] opacity-0 group-hover:opacity-100"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="h-12 w-12 cursor-pointer text-white opacity-0 delay-500 duration-300 group-hover:translate-y-[-50px] group-hover:opacity-100"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-                  />
-                </svg>
-              </div>
-            </div>
-            <div class="w-full h-full">
-              <img class="w-full rounded-md" src="../assets/system/4.png" />
-            </div>
-          </div>
-          <div class="group relative w-full">
-            <div
-              class="absolute h-full w-full overflow-hidden rounded-md group-hover:bg-opacity-55"
-            >
-              <div
-                class="absolute top-0 h-10 w-10 overflow-auto bg-opacity-0 duration-300 group-hover:h-full group-hover:w-full group-hover:bg-black/50"
-              ></div>
-
-              <div class="flex justify-center items-end w-full h-[80%]">
-                <div
-                  class="text-center text-2xl font-semibold text-white overflow-hidden opacity-0 group-hover:opacity-100"
-                >
-                  <p
-                    class="translate-y-10 group-hover:translate-y-0 duration-300"
-                  >
-                    product 1
-                  </p>
-                </div>
-              </div>
-              <div
-                class="flex items-end justify-center group-hover:h-[100px] opacity-0 group-hover:opacity-100"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="h-12 w-12 cursor-pointer text-white opacity-0 delay-500 duration-300 group-hover:translate-y-[-50px] group-hover:opacity-100"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-                  />
-                </svg>
-              </div>
-            </div>
-            <div class="w-full h-full">
-              <img class="w-full rounded-md" src="../assets/system/5.png" />
-            </div>
-          </div>
-          <div class="group relative w-full">
-            <div
-              class="absolute h-full w-full overflow-hidden rounded-md group-hover:bg-opacity-55"
-            >
-              <div
-                class="absolute top-0 h-10 w-10 overflow-auto bg-opacity-0 duration-300 group-hover:h-full group-hover:w-full group-hover:bg-black/50"
-              ></div>
-
-              <div class="flex justify-center items-end w-full h-[80%]">
-                <div
-                  class="text-center text-2xl font-semibold text-white overflow-hidden opacity-0 group-hover:opacity-100"
-                >
-                  <p
-                    class="translate-y-10 group-hover:translate-y-0 duration-300"
-                  >
-                    product 1
-                  </p>
-                </div>
-              </div>
-              <div
-                class="flex items-end justify-center group-hover:h-[100px] opacity-0 group-hover:opacity-100"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="h-12 w-12 cursor-pointer text-white opacity-0 delay-500 duration-300 group-hover:translate-y-[-50px] group-hover:opacity-100"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-                  />
-                </svg>
-              </div>
-            </div>
-            <div class="w-full h-full">
-              <img class="w-full rounded-md" src="../assets/system/6.png" />
-            </div>
-          </div>
-          <div class="group relative w-full">
-            <div
-              class="absolute h-full w-full overflow-hidden rounded-md group-hover:bg-opacity-55"
-            >
-              <div
-                class="absolute top-0 h-10 w-10 overflow-auto bg-opacity-0 duration-300 group-hover:h-full group-hover:w-full group-hover:bg-black/50"
-              ></div>
-
-              <div class="flex justify-center items-end w-full h-[80%]">
-                <div
-                  class="text-center text-2xl font-semibold text-white overflow-hidden opacity-0 group-hover:opacity-100"
-                >
-                  <p
-                    class="translate-y-10 group-hover:translate-y-0 duration-300"
-                  >
-                    product 1
-                  </p>
-                </div>
-              </div>
-              <div
-                class="flex items-end justify-center group-hover:h-[100px] opacity-0 group-hover:opacity-100"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="h-12 w-12 cursor-pointer text-white opacity-0 delay-500 duration-300 group-hover:translate-y-[-50px] group-hover:opacity-100"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-                  />
-                </svg>
-              </div>
-            </div>
-            <div class="w-full h-full">
-              <img class="w-full rounded-md" src="../assets/system/7.jpg" />
-            </div>
-          </div>
-          <div class="group relative w-full">
-            <div
-              class="absolute h-full w-full overflow-hidden rounded-md group-hover:bg-opacity-55"
-            >
-              <div
-                class="absolute top-0 h-10 w-10 overflow-auto bg-opacity-0 duration-300 group-hover:h-full group-hover:w-full group-hover:bg-black/50"
-              ></div>
-
-              <div class="flex justify-center items-end w-full h-[80%]">
-                <div
-                  class="text-center text-2xl font-semibold text-white overflow-hidden opacity-0 group-hover:opacity-100"
-                >
-                  <p
-                    class="translate-y-10 group-hover:translate-y-0 duration-300"
-                  >
-                    product 1
-                  </p>
-                </div>
-              </div>
-              <div
-                class="flex items-end justify-center group-hover:h-[100px] opacity-0 group-hover:opacity-100"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="h-12 w-12 cursor-pointer text-white opacity-0 delay-500 duration-300 group-hover:translate-y-[-50px] group-hover:opacity-100"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-                  />
-                </svg>
-              </div>
-            </div>
-            <div class="w-full h-full">
-              <img class="w-full rounded-md" src="../assets/system/8.jpg" />
-            </div>
-          </div>
-          <div class="group relative w-full">
-            <div
-              class="absolute h-full w-full overflow-hidden rounded-md group-hover:bg-opacity-55"
-            >
-              <div
-                class="absolute top-0 h-10 w-10 overflow-auto bg-opacity-0 duration-300 group-hover:h-full group-hover:w-full group-hover:bg-black/50"
-              ></div>
-
-              <div class="flex justify-center items-end w-full h-[80%]">
-                <div
-                  class="text-center text-2xl font-semibold text-white overflow-hidden opacity-0 group-hover:opacity-100"
-                >
-                  <p
-                    class="translate-y-10 group-hover:translate-y-0 duration-300"
-                  >
-                    product 1
-                  </p>
-                </div>
-              </div>
-              <div
-                class="flex items-end justify-center group-hover:h-[100px] opacity-0 group-hover:opacity-100"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="h-12 w-12 cursor-pointer text-white opacity-0 delay-500 duration-300 group-hover:translate-y-[-50px] group-hover:opacity-100"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-                  />
-                </svg>
-              </div>
-            </div>
-            <div class="w-full h-full">
-              <img
-                class="w-full rounded-md"
-                src="https://i.pinimg.com/236x/69/36/a1/6936a14841e47a058c446cd32ceab32f.jpg"
-              />
+              <img class="w-full rounded-md" :src="products.image" />
             </div>
           </div>
         </div>
@@ -456,3 +126,32 @@
     </div>
   </div>
 </template>
+<script>
+import { getCollectionQuery } from "@/composible/getCollection";
+import { ref, onMounted } from "vue";
+export default {
+  setup() {
+    const dataitem = ref([]);
+    const getData = async () => {
+      try {
+        await getCollectionQuery(
+          "products",
+          [],
+          (data) => {
+            dataitem.value = data.filter(
+              (item) => item.type === "System Development"
+            );
+          },
+          true
+        );
+      } catch (error) {
+        console.error(error.message);
+      }
+    };
+    onMounted(() => {
+      getData();
+    });
+    return { dataitem };
+  },
+};
+</script>

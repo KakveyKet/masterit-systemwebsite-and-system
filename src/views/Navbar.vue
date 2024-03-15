@@ -62,12 +62,18 @@
       <div
         class="lg:flex xl:flex md:hidden hidden items-center gap-[42px] mr-4 justify-end font-NotoSansKhmer"
       >
-        <router-link class="text-menu" to="/">Home</router-link>
-        <router-link class="text-menu" to="/aboutUs">About Us</router-link>
-        <router-link class="text-menu" to="/productsandservices"
-          >Our Services</router-link
+        <router-link class="text-menu py-2" to="/mainpage"
+          >ទំព័រដើម</router-link
         >
-        <router-link class="text-menu" to="/contact">Contact</router-link>
+        <router-link class="text-menu py-2" to="/aboutUs"
+          >អំពីពួកយើង</router-link
+        >
+        <router-link class="text-menu py-2" to="/productsandservices"
+          >សេវាកម្ម</router-link
+        >
+        <router-link class="text-menu py-2" to="/contact"
+          >ទំនាក់ទំនង
+        </router-link>
       </div>
     </div>
   </div>
@@ -81,7 +87,7 @@
   >
     <ul class="w-[180px] text-end flex flex-col font-NotoSansKhmer">
       <router-link
-        to="/"
+        to="/mainpage"
         @click.prevent="handleOpenMenuMobile"
         class="text-heading4 text-primery1 font-bold hover:text-primery1/70 duration-300 px-[24px] py-[12px]"
       >

@@ -82,7 +82,7 @@
       <p
         class="lg:text-heading2 xl:text-heading2 md:text-heading2 text-heading4 font-NotoSansKhmer lg:ml-0 xl:ml-0 md:ml-4 ml-4"
       >
-        Out Standing Product
+        ផលិតផលលេចធ្លោ
       </p>
     </div>
     <div
@@ -120,9 +120,9 @@
   >
     <div class="w-full mt-4">
       <h1
-        class="text-center text-white lg:text-Heading1 xl:text-Heading1 md:text-heading4 text-heading3"
+        class="text-center text-white lg:text-Heading1 xl:text-Heading1 md:text-heading4 text-heading3 font-NotoSansKhmer"
       >
-        Meet our partner
+        ដៃគូរបស់យើង
       </h1>
     </div>
     <div
@@ -251,7 +251,9 @@ export default {
           "products",
           [],
           (data) => {
-            products.value = data;
+            products.value = data.filter(
+              (item) => item.productdisplay === "outstanding"
+            );
           },
           true
         );

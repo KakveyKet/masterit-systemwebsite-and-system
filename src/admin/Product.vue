@@ -121,10 +121,12 @@
             </div>
           </div>
 
-          <div class="w-full overflow-auto h-[500px] mt-4">
+          <div
+            class="w-full overflow-auto shadow-md h-[500px] scrollbar-hide mt-4"
+          >
             <div
               v-if="currentPageItems.length > 0"
-              class="relative shadow-md sm:rounded-lg"
+              class="relative sm:rounded-lg"
             >
               <table>
                 <tr>
@@ -146,7 +148,7 @@
                       data && data.createdAt
                         ? new Date(
                             data.createdAt.seconds * 1000
-                          ).toLocaleString()
+                          ).toLocaleDateString()
                         : "N/A"
                     }}
                   </td>
@@ -156,7 +158,7 @@
                     </h2>
                   </td>
                   <td>
-                    <img class="w-20 h-20" :src="data.image" />
+                    <img class="w-20 h-20 object-cover" :src="data.image" />
                   </td>
                   <td>
                     <h2>{{ data.descritpts }}</h2>
@@ -165,25 +167,34 @@
                     class="flex gap-2 items-center justify-center border-none"
                   >
                     <div class="flex items-center justify-center gap-2 h-40">
-                      <button
-                        class="w-[36px] flex items-center justify-center h-[36px] bg-primery1 rounded-[6px]"
+                      <router-link
+                        v-if="data && data.id"
+                        :to="{
+                          name: 'productsdetails',
+                          params: { id: data.id },
+                        }"
                       >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                          class="w-6 h-6 text-white"
+                        <button
+                          class="w-[36px] flex items-center justify-center h-[36px] bg-primery1 rounded-[6px]"
                         >
-                          <path
-                            d="M10 12.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"
-                          />
-                          <path
-                            fill-rule="evenodd"
-                            d="M.664 10.59a1.651 1.651 0 0 1 0-1.186A10.004 10.004 0 0 1 10 3c4.257 0 7.893 2.66 9.336 6.41.147.381.146.804 0 1.186A10.004 10.004 0 0 1 10 17c-4.257 0-7.893-2.66-9.336-6.41ZM14 10a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z"
-                            clip-rule="evenodd"
-                          />
-                        </svg>
-                      </button>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                            class="w-6 h-6 text-white"
+                          >
+                            <path
+                              d="M10 12.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"
+                            />
+                            <path
+                              fill-rule="evenodd"
+                              d="M.664 10.59a1.651 1.651 0 0 1 0-1.186A10.004 10.004 0 0 1 10 3c4.257 0 7.893 2.66 9.336 6.41.147.381.146.804 0 1.186A10.004 10.004 0 0 1 10 17c-4.257 0-7.893-2.66-9.336-6.41ZM14 10a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z"
+                              clip-rule="evenodd"
+                            />
+                          </svg>
+                        </button>
+                      </router-link>
+
                       <button
                         @click="handleAddEditData(data)"
                         class="w-[36px] flex items-center justify-center h-[36px] bg-accent rounded-[6px]"
@@ -258,48 +269,48 @@
             >
               <h2 class="text-heading3 text-primery1">No item found</h2>
             </div>
-            <div class="w-full flex items-center justify-end mt-8 gap-4">
-              <button
-                :class="{ 'bg-primery1/50': currentPage === 1 }"
-                v-if="currentPage > 1"
-                class="w-10 h-10 bg-primery1 rounded-md text-white flex items-center justify-center hover:bg-background hover:border-2 duration-200 hover:text-primery1 hover:border-primery1"
-                @click="prevPage"
-                :disabled="currentPage === 1"
+          </div>
+          <div class="w-full flex items-center justify-end mt-8 gap-4">
+            <button
+              :class="{ 'bg-primery1/50': currentPage === 1 }"
+              v-if="currentPage > 1"
+              class="w-10 h-10 bg-primery1 rounded-md text-white flex items-center justify-center hover:bg-background hover:border-2 duration-200 hover:text-primery1 hover:border-primery1"
+              @click="prevPage"
+              :disabled="currentPage === 1"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 16 16"
+                fill="currentColor"
+                class="w-6 h-6"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 16 16"
-                  fill="currentColor"
-                  class="w-6 h-6"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M14 8a.75.75 0 0 1-.75.75H4.56l3.22 3.22a.75.75 0 1 1-1.06 1.06l-4.5-4.5a.75.75 0 0 1 0-1.06l4.5-4.5a.75.75 0 0 1 1.06 1.06L4.56 7.25h8.69A.75.75 0 0 1 14 8Z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-              </button>
-              {{ currentPage }} of {{ totalPages }}
-              <button
-                :class="{ 'bg-primery1/50': currentPage === totalPages }"
-                class="w-10 h-10 bg-primery1 rounded-md text-white flex items-center justify-center hover:bg-background hover:border-2 duration-200 hover:text-primery1 hover:border-primery1"
-                @click="nextPage"
-                :disabled="currentPage === totalPages"
+                <path
+                  fill-rule="evenodd"
+                  d="M14 8a.75.75 0 0 1-.75.75H4.56l3.22 3.22a.75.75 0 1 1-1.06 1.06l-4.5-4.5a.75.75 0 0 1 0-1.06l4.5-4.5a.75.75 0 0 1 1.06 1.06L4.56 7.25h8.69A.75.75 0 0 1 14 8Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </button>
+            {{ currentPage }} of {{ totalPages }}
+            <button
+              :class="{ 'bg-primery1/50': currentPage === totalPages }"
+              class="w-10 h-10 bg-primery1 rounded-md text-white flex items-center justify-center hover:bg-background hover:border-2 duration-200 hover:text-primery1 hover:border-primery1"
+              @click="nextPage"
+              :disabled="currentPage === totalPages"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 16 16"
+                fill="currentColor"
+                class="w-6 h-6"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 16 16"
-                  fill="currentColor"
-                  class="w-6 h-6"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-              </button>
-            </div>
+                <path
+                  fill-rule="evenodd"
+                  d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </button>
           </div>
         </div>
       </div>
@@ -491,3 +502,11 @@ export default {
   },
 };
 </script>
+<style>
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+</style>

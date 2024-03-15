@@ -13,6 +13,7 @@ export const getCollectionQuery = async (
     callback,
     useSnapshot = false
 ) => {
+
     const collectionRef = collection(projectFirestore, collectionName);
     let queryRef = collectionRef;
     if (whereDoc) {
@@ -22,6 +23,9 @@ export const getCollectionQuery = async (
     try {
         if (useSnapshot) {
             const unsubscribe = onSnapshot(queryRef, (snapshot) => {
+                console.log('====================================');
+                console.log('snapshot', snapshot.docs.length);
+                console.log('====================================');
                 const data = [];
                 snapshot.forEach((doc) => {
                     data.push({ id: doc.id, ...doc.data() });

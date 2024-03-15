@@ -1,5 +1,32 @@
 <template>
-  <div class="w-[1920px] h-screen bg-background">
+  <div class="w-[1920px] h-screen bg-background relative">
+    <div
+      v-if="isLogout == true"
+      class="fixed top-0 bg-black/35 w-full h-screen z-[30] flex items-center justify-center"
+    >
+      <div
+        v-motion-slide-top
+        class="w-[350px] bg-background font-NotoSansKhmer rounded-md shadow-md p-3"
+      >
+        <h2 class="text-heading4 font-semibold text-primery1">
+          Are you sure to logout ?
+        </h2>
+        <div class="flex items-center gap-3">
+          <button
+            class="btndynamic border-primery1 border-2 mt-2 px-4 py-2 duration-200"
+            @click="handleLogout"
+          >
+            No
+          </button>
+          <button
+            @click="handleSignOut"
+            class="btndynamic bg-red-500 text-white border-red-500 border-2 mt-2 px-4 py-2 duration-200"
+          >
+            Yes
+          </button>
+        </div>
+      </div>
+    </div>
     <div class="w-full">
       <NavbarVue />
     </div>
@@ -66,10 +93,30 @@
         </router-link>
       </div>
     </div>
+    <div
+      class="flex absolute bottom-12 right-2 px-4 py-3 items-center justify-center gap-3 bg-primery1 p-2 rounded-full cursor-pointer"
+    >
+      <button @click="handleLogout" class="px-3 py-1">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-8 h-8"
+          viewBox="0 0 48 48"
+        >
+          <path
+            fill="none"
+            stroke="white"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="4"
+            d="M23.992 6H6v36h18m9-9l9-9l-9-9m-17 8.992h26"
+          />
+        </svg>
+      </button>
+    </div>
   </div>
   <div>
     <div
-      class="w-full bg-background h-8 flex items-center fixed bottom-2 border-t-2 border-primery1 z-50"
+      class="w-full bg-background h-8 flex items-center fixed bottom-2 border-t-2 border-primery1 z-[20]"
     >
       <h2
         class="text-body uppercase font-bold ml-4 text-primery1 font-NotoSansKhmer"
@@ -81,9 +128,12 @@
 </template>
 
 <script>
+import { ref } from "vue";
 import { useRouter } from "vue-router";
 import NavbarVue from "./Navbar.vue";
 import FooterVue from "../admin/Footer.vue";
+import { projectAuth } from "@/firebase/config";
+
 export default {
   components: { NavbarVue, FooterVue },
   setup() {
@@ -91,9 +141,24 @@ export default {
     const handleGotoService = () => {
       router.push({ name: "services" });
     };
-
+    const handleSignOut = async () => {
+      try {
+        await projectAuth.signOut();
+        console.log("Sign-out successful");
+        router.push({ name: "login" });
+      } catch (error) {
+        console.error("Error signing out:", error.message);
+      }
+    };
+    const isLogout = ref(false);
+    const handleLogout = () => {
+      isLogout.value = !isLogout.value;
+    };
     return {
       handleGotoService,
+      handleSignOut,
+      isLogout,
+      handleLogout,
     };
   },
 };

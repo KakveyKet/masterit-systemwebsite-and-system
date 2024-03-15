@@ -19,16 +19,38 @@ import ServiceAndProduct from '@/admin/Categories.vue'
 import Product from '@/admin/Product.vue'
 import Partner from '@/admin/Partner.vue'
 import AnswerAndQuestion from '@/admin/AnswerAndQuestion.vue'
-import Htmleditor from '@/admin/Htmleditor.vue'
 import MainPage from '@/views/MainPage.vue'
+
+import Login from '@/admin/Login.vue'
+import Register from '@/admin/Register.vue'
+import FogetPassword from '../admin/FogetPassword.vue'
+import Profileinfo from '@/admin/Profileinfo.vue'
+
+import ProductDetail from '@/admin/ProductDetail.vue'
+
 const routes = [
+  {
+    path: '/',
+    name: 'login',
+    component: Login
+  },
+  {
+    path: '/register',
+    name: 'register',
+    component: Register
+  },
+  {
+    path: '/forgetpassword',
+    name: 'forgetpassword',
+    component: FogetPassword
+  },
   {
     path: '/home',
     name: 'home',
     component: HomeView,
     children: [
       {
-        path: '/',
+        path: '/mainpage',
         name: 'mainpage',
         component: MainPage
       },
@@ -55,23 +77,20 @@ const routes = [
         path: '/websitedesigne',
         name: 'websitedesigne',
         component: WebsiteDevelopmentVue,
-      }, {
-        path: '/cms',
-        name: 'cms',
-        component: BusinessManagementSystemVue
       },
       {
         path: '/websitedev',
         name: 'websitedev',
         component: WebsiteDevelopmentVue
       }, {
-        path: '/BussinessManangerDevelopmentVue',
-        name: 'BussinessManangerDevelopmentVue',
+        path: '/bms',
+        name: 'bms',
         component: BussinessManangerDevelopmentVue
       }, {
         path: '/systemdev/:id',
         name: 'systemdetails',
-        component: SystemDetails
+        component: SystemDetails,
+        props: true
       }
 
     ]
@@ -80,6 +99,11 @@ const routes = [
     path: '/admin',
     name: 'admin',
     component: Dashboard,
+  },
+  {
+    path: '/profile',
+    name: 'profile',
+    component: Profileinfo
   },
   {
     path: '/services',
@@ -91,6 +115,12 @@ const routes = [
     component: Product
   },
   {
+    path: '/products/:id',
+    name: 'productsdetails',
+    component: ProductDetail,
+    props: true
+  },
+  {
     path: '/partner',
     name: 'partner',
     component: Partner
@@ -99,11 +129,7 @@ const routes = [
     name: 'qanda',
     component: AnswerAndQuestion
   },
-  {
-    path: '/test',
-    name: 'test',
-    component: Htmleditor
-  }
+
 
 ]
 

@@ -56,20 +56,18 @@
               <h1 class="text-2xl font-bold text-primery1 py-2">
                 {{ cart.name }}
               </h1>
-              <div class="w-full h-[100px] inline-block">
-                <h1 class="text-lg font-semibold text-gray-500">
+              <div class="w-full h-[70px] inline-block">
+                <h1 class="text-lg truncate font-semibold text-gray-500">
                   {{ cart.description }}
                 </h1>
               </div>
-
-              <div class="w-full h-[70px] flex items-center justify-start">
+              <router-link :to="cart.router">
                 <button
-                  @click="handleGotoSystenDev"
                   class="mt-4 rounded-md border-2 px-[24px] py-[7px] text-xl text-gray-500 hover:bg-primery1 duration-300 hover:text-white"
                 >
                   View
                 </button>
-              </div>
+              </router-link>
             </div>
           </div>
         </div>
@@ -103,16 +101,8 @@ export default {
       getData();
     });
     const router = useRouter();
-    const handleGotoSystenDev = () => {
-      router.push({ name: "systemdev" });
-    };
-    const handleGotoWebDev = () => {
-      router.push({ name: "websitedev" });
-    };
-    const handleGotoCms = () => {
-      router.push({ name: "BussinessManangerDevelopmentVue" });
-    };
-    return { handleGotoSystenDev, handleGotoWebDev, handleGotoCms, category };
+
+    return { category };
   },
 };
 </script>

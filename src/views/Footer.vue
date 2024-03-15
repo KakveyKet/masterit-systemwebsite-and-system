@@ -24,7 +24,7 @@
         <h1
           class="lg:text-Heading1 xl:text-Heading1 md:text-heading2 text-heading3 text-white text-center py-4"
         >
-          Social Media
+          បណ្ដាញសង្គម
         </h1>
         <div
           class="lg:h-[80px] bg-primery2 rounded-full flex items-center justify-center lg:gap-12 xl:gap-12 gap-5 lg:w-[500px] xl:w-[500px] w-auto lg:p-2 xl:p-0 md:p-2 p-2"
@@ -202,8 +202,9 @@
           />
           <div class="w-full text-center">
             <h1 class="text-white">Master IT System</h1>
-            <p class="text-body font-bold text-white">
-              We will help you to control your business easily and grow it fast
+            <p class="text-heading4 font-bold text-white">
+              យើងនឹងជួយអ្នកឱ្យគ្រប់គ្រងអាជីវកម្មរបស់អ្នកបានយ៉ាងងាយស្រួល
+              និងរីកចម្រើនយ៉ាងឆាប់រហ័ស
             </p>
           </div>
         </div>
@@ -212,25 +213,27 @@
             <h2
               class="lg:text-Heading1 xl:text-Heading1 md:text-heading2 text-heading3 text-left text-white py-4 font-bold"
             >
-              Contact Us
+              ទាក់ទងមកពួកយើង
             </h2>
           </div>
 
           <ul>
             <li class="text-white text-heading4 font-bold">
-              Email :
+              អ៊ីមែល :
               <span class="text-body text-white font-normal"
-                >masterit.system@gmail.com</span
+                ><a href="masterit.system@gmail.com"
+                  >masterit.system@gmail.com</a
+                ></span
               >
             </li>
             <li class="text-white text-heading4 font-bold">
-              Telephone :
+              ទូរស័ព្ទ :
               <span class="text-body text-white font-normal"
                 >095 956 656 / 096 50 21 168</span
               >
             </li>
             <li class="text-white text-heading4 font-bold">
-              Telegram :
+              តេឡេក្រាម :
               <a
                 href="https://t.me/masteritsystems_saleconsultant"
                 class="text-body text-white font-normal"
@@ -239,51 +242,14 @@
               >
             </li>
             <li class="text-white text-heading4 font-bold">
-              Address :
+              អាស័យដ្ឋាន :
               <span class="text-body text-white font-normal">
-                Phum Romchek IV, Sangkat Ratanak, Krong Battambang, <br />
-                Battambang Province</span
-              >
-            </li>
-          </ul>
-        </div>
-        <div class="w-full lg:hidden xl:hidden flex flex-col md:flex">
-          <div class="w-full">
-            <h2
-              class="lg:text-Heading1 xl:text-Heading1 md:text-heading2 text-heading4 text-left text-white py-4 font-bold"
-            >
-              Contact Us
-            </h2>
-          </div>
-
-          <ul>
-            <li class="text-white text-heading4 font-bold">
-              Email :
-              <span class="text-body text-white font-normal"
-                >masterit.system@gmail.com</span
-              >
-            </li>
-            <li class="text-white text-heading4 font-bold">
-              Telephone :
-              <span class="text-body text-white font-normal"
-                >095 956 656 / 096 50 21 168</span
-              >
-            </li>
-            <li class="text-white text-heading4 font-bold">
-              Telegram :
-              <a
-                href="https://t.me/masteritsystems_saleconsultant"
-                class="text-body text-white font-normal"
-              >
-                https://t.me/masteritsystems_saleconsultant</a
-              >
-            </li>
-            <li class="text-white text-heading4 font-bold">
-              Address :
-              <span class="text-body text-white font-normal">
-                Phum Romchek IV, Sangkat Ratanak, Krong Battambang, <br />
-                Battambang Province</span
-              >
+                <a
+                  target="_blank"
+                  href="https://maps.app.goo.gl/2nTDojzKmaFsVoxH6"
+                  >ភូមិ រំចេក បួន សង្កាត់រតនៈ ក្រុង បាត់ដំបង ខេត្តបាត់ដំបង</a
+                >
+              </span>
             </li>
           </ul>
         </div>
@@ -300,7 +266,8 @@
           <div class="w-full text-start">
             <h1 class="text-white">Master IT System</h1>
             <p class="text-md font-bold text-white">
-              We will help you to control your business easily and grow it fast
+              យើងនឹងជួយអ្នកឱ្យគ្រប់គ្រងអាជីវកម្មរបស់អ្នកបានយ៉ាងងាយស្រួល
+              និងរីកចម្រើនយ៉ាងឆាប់រហ័ស
             </p>
           </div>
         </div>
@@ -309,25 +276,25 @@
             <h2
               class="lg:text-Heading1 xl:text-Heading1 md:text-heading2 text-heading3 text-start ml-2 text-white py-2 font-bold"
             >
-              Contact Us
+              ទាក់ទង មក ពួក យើង
             </h2>
           </div>
 
           <ul class="ml-2 py-4">
             <li class="text-white text-body font-bold">
-              Email :
+              អ៊ីមែល :
               <span class="text-[16px] text-white font-normal">
                 masterit.system@gmail.com</span
               >
             </li>
             <li class="text-white text-body font-bold">
-              Telephone :
+              ទូរស័ព្ទ :
               <span class="text-[16px] text-white font-normal">
                 095 956 656 / 096 50 21 168</span
               >
             </li>
             <li class="text-white text-body font-bold">
-              Telegram :
+              តេឡេក្រាម :
               <a
                 href="https://t.me/masteritsystems_saleconsultant"
                 class="text-[16px] text-white font-normal"
@@ -336,11 +303,14 @@
               >
             </li>
             <li class="text-white text-body font-bold">
-              Address :
+              អាស័យដ្ឋាន :
               <span class="text-[16px] text-white font-normal">
-                Phum Romchek IV, Sangkat Ratanak, Krong Battambang, <br />
-                Battambang Province</span
-              >
+                <a
+                  target="_blank"
+                  href="https://maps.app.goo.gl/2nTDojzKmaFsVoxH6"
+                  >ភូមិ រំចេក បួន សង្កាត់រតនៈ ក្រុង បាត់ដំបង ខេត្តបាត់ដំបង</a
+                >
+              </span>
             </li>
           </ul>
         </div>

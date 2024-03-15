@@ -1,13 +1,11 @@
 <template>
-  <div class="w-[1900px] bg-background h-auto font-NotoSansKhmer relative">
-    <div class="w-[full]">
-      <Navbar />
-    </div>
-    <div class="w-full h-[72px] flex items-center ml-4">
+  <div class="w-full bg-background h-auto font-NotoSansKhmer relative">
+    <Navbar />
+    <div class="Container h-[72px] flex items-center ml-4">
       <h2 class="text-heading3 font-semibold">FAQ</h2>
     </div>
     <div
-      class="w-full border rounded-[6px] shadow-md bg-background h-[740px] p-3"
+      class="Container border rounded-[6px] shadow-md bg-background h-[740px] p-3"
     >
       <div class="w-full p-3 flex items-center justify-between">
         <router-link to="/admin" class="flex items-center gap-4">
@@ -148,8 +146,11 @@
           aria-labelledby="tabs-home-tab"
           data-te-tab-active
         >
-          <div v-if="currentPageItems.length > 0" class="w-full mt-4">
-            <div class="relative sm:rounded-lg">
+          <div class="w-full mt-4">
+            <div
+              v-if="currentPageItems.length > 0"
+              class="relative sm:rounded-lg shadow-md"
+            >
               <table>
                 <tr>
                   <th class="text-center">No</th>
@@ -251,54 +252,54 @@
                 </tr>
               </table>
             </div>
-          </div>
-          <div
-            v-else
-            class="relative sm:rounded-lg flex items-center justify-center h-[400px]"
-          >
-            <h2 class="text-heading3 text-primery1">No item found</h2>
-          </div>
-          <div class="w-full flex items-center justify-end mt-8 gap-4">
-            <button
-              :class="{ 'bg-primery1/50': currentPage === 1 }"
-              v-if="currentPage > 1"
-              class="w-10 h-10 bg-primery1 rounded-md text-white flex items-center justify-center hover:bg-background hover:border-2 duration-200 hover:text-primery1 hover:border-primery1"
-              @click="prevPage"
-              :disabled="currentPage === 1"
+            <div
+              v-else
+              class="relative sm:rounded-lg flex items-center justify-center h-[400px]"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 16 16"
-                fill="currentColor"
-                class="w-6 h-6"
+              <h2 class="text-heading3 text-primery1">No item found</h2>
+            </div>
+            <div class="w-full flex items-center justify-end mt-8 gap-4">
+              <button
+                :class="{ 'bg-primery1/50': currentPage === 1 }"
+                v-if="currentPage > 1"
+                class="w-10 h-10 bg-primery1 rounded-md text-white flex items-center justify-center hover:bg-background hover:border-2 duration-200 hover:text-primery1 hover:border-primery1"
+                @click="prevPage"
+                :disabled="currentPage === 1"
               >
-                <path
-                  fill-rule="evenodd"
-                  d="M14 8a.75.75 0 0 1-.75.75H4.56l3.22 3.22a.75.75 0 1 1-1.06 1.06l-4.5-4.5a.75.75 0 0 1 0-1.06l4.5-4.5a.75.75 0 0 1 1.06 1.06L4.56 7.25h8.69A.75.75 0 0 1 14 8Z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-            </button>
-            {{ currentPage }} of {{ totalPages }}
-            <button
-              :class="{ 'bg-primery1/50': currentPage === totalPages }"
-              class="w-10 h-10 bg-primery1 rounded-md text-white flex items-center justify-center hover:bg-background hover:border-2 duration-200 hover:text-primery1 hover:border-primery1"
-              @click="nextPage"
-              :disabled="currentPage === totalPages"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 16 16"
-                fill="currentColor"
-                class="w-6 h-6"
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 16 16"
+                  fill="currentColor"
+                  class="w-6 h-6"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M14 8a.75.75 0 0 1-.75.75H4.56l3.22 3.22a.75.75 0 1 1-1.06 1.06l-4.5-4.5a.75.75 0 0 1 0-1.06l4.5-4.5a.75.75 0 0 1 1.06 1.06L4.56 7.25h8.69A.75.75 0 0 1 14 8Z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </button>
+              {{ currentPage }} of {{ totalPages }}
+              <button
+                :class="{ 'bg-primery1/50': currentPage === totalPages }"
+                class="w-10 h-10 bg-primery1 rounded-md text-white flex items-center justify-center hover:bg-background hover:border-2 duration-200 hover:text-primery1 hover:border-primery1"
+                @click="nextPage"
+                :disabled="currentPage === totalPages"
               >
-                <path
-                  fill-rule="evenodd"
-                  d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-            </button>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 16 16"
+                  fill="currentColor"
+                  class="w-6 h-6"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
       </div>

@@ -205,6 +205,7 @@
                       </button>
                     </div>
                   </td>
+
                   <div
                     v-if="isDeleteOpen == true"
                     class="fixed w-full h-full bg-black/30 flex items-center top-0 right-0 justify-center"
@@ -325,7 +326,6 @@ export default {
   setup() {
     const dataitem = ref([]);
     let sortedbyASC = ref(true);
-
     const sortList = (sortBy) => {
       if (sortedbyASC.value) {
         dataitem.value.sort((x, y) => (x[sortBy] > y[sortBy] ? -1 : 1));

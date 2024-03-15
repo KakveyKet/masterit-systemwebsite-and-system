@@ -1,9 +1,7 @@
 <template>
   <div class="flex flex-col">
-    <div>
+    <div v-if="product">
       <div
-        v-for="product in data"
-        :key="product"
         class="w-full md:w-full xl:w-[1420px] lg:w-[1420px] mx-auto space-y-4"
       >
         <div
@@ -11,7 +9,7 @@
           class="lg:mt-52 xl:mt-52 md:mt-32 mt-20 text-start lg:p-0 xl:p-0 p-3 md:p-3"
         >
           <h1 class="font-NotoSansKhmer text-primery1">
-            {{ product.productname }}
+            {{ product.name }}
           </h1>
         </div>
 
@@ -20,13 +18,13 @@
           class="w-full max-w-[1420px] py-4 lg:p-0 xl:p-0 p-3 md:p-3"
         >
           <p class="text-textbody font-semibold text-body">
-            {{ product.productdes }}
+            {{ product.descritpts }}
           </p>
         </div>
 
         <!-- taiils -->
         <div
-          v-for="(productfeatures, index) in product.productfeature"
+          v-for="(productfeatures, index) in product.feature"
           :key="index"
           class="w-full max-w-[1420px] py-4 lg:p-0 xl:p-0 p-3 md:p-3 space-y-4"
         >
@@ -45,11 +43,11 @@
               <h2
                 class="text-textbody font-NotoSansKhmer text-heading3 font-semibold"
               >
-                {{ productfeatures.feature1 }}
+                {{ productfeatures.title }}
               </h2>
               <div class="flex flex-col items-center justify-center w-[90%]">
                 <p class="text-body font-NotoSansKhmer">
-                  {{ productfeatures.content }}
+                  {{ productfeatures.details }}
                 </p>
               </div>
             </div>
@@ -66,77 +64,39 @@
 <script>
 import FooterVue from "./Footer.vue";
 import NavbarVue from "./Navbar.vue";
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref, onMounted, onBeforeUnmount } from "vue";
+import { projectFirestore } from "@/firebase/config";
+import { doc, getDoc } from "firebase/firestore";
 export default {
+  props: {
+    id: String,
+  },
   components: {
     FooterVue,
     NavbarVue,
   },
-  setup() {
-    const show = ref(false);
-    const windowWidth = ref(window.innerWidth);
+  setup(props) {
+    const product = ref(null);
 
-    const handleScroll = () => {
-      if (window.scrollY > 200) {
-        show.value = true;
-      } else {
-        show.value = false;
+    const fetchProduct = async () => {
+      try {
+        const productRef = doc(projectFirestore, "products", props.id);
+        const docSnap = await getDoc(productRef);
+        if (docSnap.exists()) {
+          product.value = docSnap.data();
+        } else {
+          console.error(`Product with ID ${props.id} not found.`);
+        }
+      } catch (error) {
+        console.error("Error fetching product:", error);
       }
     };
 
     onMounted(() => {
-      window.addEventListener("scroll", handleScroll);
+      fetchProduct();
     });
 
-    onUnmounted(() => {
-      window.removeEventListener("scroll", handleScroll);
-    });
-    const data = ref([
-      {
-        productname: "Pos System",
-
-        productdes:
-          "As a business owner, it is critical that you maintain a responsive website design to appeal to search engines and online users. You must ensure your target customers see a legit business platform when they search for your company online. Otherwise, you risk losing trust from your prospective clients and dissuade them from engaging with your brand.",
-        productfeature: [
-          {
-            feature1: "feature1",
-            content:
-              "custom website designYour website is a powerful communication platform that allows you to market your brand 24/7 and connect with clients from across locations. However, not all sites guarantee your desired return on investment (ROI). The primary consideration is choosing between a website template and a custom design website.A website template is a pre-made web design that allows developers to plug in content into a sophisticated framework built through HTML or CSS. You can edit limited features, such as colors, font styles and images. But aside from these, what you see is what you get. Although ready-made templates help you save time and money, they lack flexibility and uniqueness.",
-            image:
-              "https://i.pinimg.com/564x/96/b8/0d/96b80d0d638a749bf45d629a32f6e5a3.jpg",
-          },
-          {
-            feature1: "feature2",
-            content:
-              "Your website is the backbone of your business. It supports all your company’s digital marketing efforts and serves as your primary customer touchpoint. A responsive, custom eCommerce website design gives online users a clear idea of your brand offerings, unique value propositions and core values.According to a report released by the eCommerce Foundation, 88 percent of U.S. consumers perform online research before making a purchase or visiting a local store. Without a professional custom website design, online shoppers can get easily frustrated. This results in an increased bounce rate, poor online reputation and lower conversion rate.",
-            image:
-              "https://i.pinimg.com/564x/d5/11/ef/d511efd228680d0d2a3cc0c945f26fa5.jpg",
-          },
-          {
-            feature1: "feature3",
-            content:
-              "A custom design website, on the other hand, allows you to establish and express your brand through tailored page elements that align with your objectives. Custom web design cost is relatively higher than website templates, but they offer numerous benefits that give you a competitive edge. A custom WordPress website design is more search engine-friendly, customer-centric, unique and scalable than built-in templates.By choosing custom website design packages, you build a website around your specific customer journey and brand messaging.",
-            image:
-              "https://i.pinimg.com/736x/1d/bb/82/1dbb82048e767a2a70d404ba8e8d9498.jpg",
-          },
-          {
-            feature1: "feature4",
-            content:
-              "A custom design website, on the other hand, allows you to establish and express your brand through tailored page elements that align with your objectives. Custom web design cost is relatively higher than website templates, but they offer numerous benefits that give you a competitive edge. A custom WordPress website design is more search engine-friendly, customer-centric, unique and scalable than built-in templates.By choosing custom website design packages, you build a website around your specific customer journey and brand messaging.",
-            image:
-              "https://i.pinimg.com/736x/1d/bb/82/1dbb82048e767a2a70d404ba8e8d9498.jpg",
-          },
-          {
-            feature1: "feature5",
-            content:
-              "A custom design website, on the other hand, allows you to establish and express your brand through tailored page elements that align with your objectives. Custom web design cost is relatively higher than website templates, but they offer numerous benefits that give you a competitive edge. A custom WordPress website design is more search engine-friendly, customer-centric, unique and scalable than built-in templates.By choosing custom website design packages, you build a website around your specific customer journey and brand messaging.",
-            image:
-              "https://i.pinimg.com/736x/1d/bb/82/1dbb82048e767a2a70d404ba8e8d9498.jpg",
-          },
-        ],
-      },
-    ]);
-    return { data, windowWidth, show };
+    return { product };
   },
 };
 </script>

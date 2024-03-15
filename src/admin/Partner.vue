@@ -148,7 +148,7 @@
           data-te-tab-active
         >
           <div v-if="currentPageItems.length > 0" class="w-full mt-4">
-            <div class="relative sm:rounded-lg">
+            <div class="relative sm:rounded-lg shadow-md">
               <table>
                 <tr>
                   <th class="text-center">No</th>

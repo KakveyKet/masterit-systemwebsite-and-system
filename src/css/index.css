@@ -55,7 +55,7 @@
 table {
   border-collapse: collapse;
   width: 100%;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
 }
 
@@ -67,6 +67,6 @@ th {
 }
 @layer base {
   tr:nth-child(even) {
-    @apply bg-primery1/25  text-textbody;
+    @apply bg-slate-200  text-textbody;
   }
 }

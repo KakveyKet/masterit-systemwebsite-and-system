@@ -1,10 +1,10 @@
 <template>
-  <div class="w-full flex flex-col">
+  <div class="w-full flex flex-col font-NotoSansKhmer">
     <div class="lg:w-[1920px] xl:w-full md:w-full w-full h-auto">
       <div class="lg:w-[1420px] xl:w-[1420px] w-full md:w-full mx-auto">
         <div class="lg:mt-10 xl:mt-10 md:mt-32 mt-0 text-center">
           <div class="lg:mt-10 xl:mt-10 md:mt-32 mt-0 text-center py-4">
-            <h1 class="font-NotoSansKhmer text-primery1">ទំនាក់ទំនង</h1>
+            <h1 class="font-NotoSansKhmer text-primery1">ទាក់ទងមកពួកយើង</h1>
             <h1 class="text-primery1 font-NotoSansKhmer">(Our Contact)</h1>
           </div>
           <div class="w-full">
@@ -41,9 +41,11 @@
               />
             </svg>
             <div class="w-full">
-              <h2 class="text-body text-textbody font-bold">Address:</h2>
+              <h2 class="text-body text-textbody font-bold">អាស័យដ្ឋាន:</h2>
               <p class="text-link text-linkcol font-NotoSansKhmer">
-                ភូមិរំចេក៤ សង្កាត់រតនៈ ក្រុងបាត់ដំបង ខេត្តបាត់ដំបង
+                <a href="https://maps.app.goo.gl/2nTDojzKmaFsVoxH6"
+                  >ភូមិរំចេក៤ សង្កាត់រតនៈ ក្រុងបាត់ដំបង ខេត្តបាត់ដំបង</a
+                >
               </p>
             </div>
           </div>
@@ -59,9 +61,11 @@
               />
             </svg>
             <div class="w-full">
-              <h2 class="text-body text-textbody font-bold">Website:</h2>
+              <h2 class="text-body text-textbody font-bold">គេហទំព័រ:</h2>
               <p class="text-link text-linkcol font-NotoSansKhmer">
-                www.masteritsystems.com
+                <a href="master.it.system.team@gmail.com">
+                  www.masteritsystems.com
+                </a>
               </p>
             </div>
           </div>
@@ -81,7 +85,7 @@
               />
             </svg>
             <div class="w-full">
-              <h2 class="text-body text-textbody font-bold">Contact:</h2>
+              <h2 class="text-body text-textbody font-bold">ទំនាក់ទំនង:</h2>
               <p class="text-link text-textbody font-NotoSansKhmer">
                 095 956 656 / 096 50 21 168
               </p>
@@ -99,7 +103,7 @@
               />
             </svg>
             <div class="w-full">
-              <h2 class="text-body text-textbody font-bold">Email:</h2>
+              <h2 class="text-body text-textbody font-bold">អ៊ីមែល:</h2>
               <p class="text-link text-linkcol font-NotoSansKhmer">
                 master.it.system.team@gmail.com
               </p>
@@ -118,7 +122,7 @@
             </svg>
             <div class="w-full">
               <h2 class="text-body text-textbody font-bold">
-                Telegram Consultant:
+                ទីប្រឹក្សាតាមតេឡេក្រាម:
               </h2>
               <p class="text-link text-textbody font-NotoSansKhmer">
                 095 956 656

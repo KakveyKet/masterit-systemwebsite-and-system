@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex flex-col items-center justify-center w-full h-full fixed top-0 right-0 bg-black/70"
+    class="flex flex-col items-center justify-center w-full h-screen fixed top-0 right-0 bg-black/70 z-[20]"
   >
     <div
       v-motion-slide-top
@@ -92,7 +92,6 @@
                   {{ productImage.name }}
                 </h2>
                 <input
-                  required
                   @change="handleFileChangeProductImage"
                   type="file"
                   class="opacity-0 absolute w-full"
@@ -171,40 +170,68 @@
               rows="2"
             ></textarea>
 
-            <div class="w-auto flex justify-end mx-auto mt-2">
-              <button
-                type="submit"
-                v-if="ispending == false"
-                class="btndynamic w-full bg-primery1 text-white"
-              >
+            <div
+              v-if="loading == false"
+              class="w-auto flex justify-end mx-auto"
+            >
+              <button class="btndynamic w-full bg-primery1 text-white">
                 {{ datatoedit ? "Update" : "Add new" }}
               </button>
-              <button v-else class="btndynamic w-full bg-primery1 text-white">
+            </div>
+            <div v-else class="w-auto flex justify-end mx-auto">
+              <button
+                class="btndynamic w-full bg-primery1 flex items-center justify-center text-white"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="1em"
-                  height="1em"
+                  class="w-8 h-8 mr-2"
                   viewBox="0 0 24 24"
                 >
-                  <rect width="24" height="24" fill="none" />
-                  <path
-                    fill="currentColor"
-                    d="M12 2A10 10 0 1 0 22 12A10 10 0 0 0 12 2Zm0 18a8 8 0 1 1 8-8A8 8 0 0 1 12 20Z"
-                    opacity="0.5"
-                  />
-                  <path
-                    fill="currentColor"
-                    d="M20 12h2A10 10 0 0 0 12 2V4A8 8 0 0 1 20 12Z"
-                  >
-                    <animateTransform
-                      attributeName="transform"
-                      dur="1s"
-                      from="0 12 12"
-                      repeatCount="indefinite"
-                      to="360 12 12"
-                      type="rotate"
+                  <defs>
+                    <linearGradient
+                      id="mingcuteLoadingFill0"
+                      x1="50%"
+                      x2="50%"
+                      y1="5.271%"
+                      y2="91.793%"
+                    >
+                      <stop offset="0%" stop-color="#500192" />
+                      <stop
+                        offset="100%"
+                        stop-color="#500192"
+                        stop-opacity="0.55"
+                      />
+                    </linearGradient>
+                    <linearGradient
+                      id="mingcuteLoadingFill1"
+                      x1="50%"
+                      x2="50%"
+                      y1="15.24%"
+                      y2="87.15%"
+                    >
+                      <stop offset="0%" stop-color="#500192" stop-opacity="0" />
+                      <stop
+                        offset="100%"
+                        stop-color="#500192"
+                        stop-opacity="0.55"
+                      />
+                    </linearGradient>
+                  </defs>
+                  <g fill="none">
+                    <path
+                      d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427c-.002-.01-.009-.017-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093c.012.004.023 0 .029-.008l.004-.014l-.034-.614c-.003-.012-.01-.02-.02-.022m-.715.002a.023.023 0 0 0-.027.006l-.006.014l-.034.614c0 .012.007.02.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z"
                     />
-                  </path>
+                    <path
+                      fill="url(#mingcuteLoadingFill0)"
+                      d="M8.749.021a1.5 1.5 0 0 1 .497 2.958A7.502 7.502 0 0 0 3 10.375a7.5 7.5 0 0 0 7.5 7.5v3c-5.799 0-10.5-4.7-10.5-10.5C0 5.23 3.726.865 8.749.021"
+                      transform="translate(1.5 1.625)"
+                    />
+                    <path
+                      fill="url(#mingcuteLoadingFill1)"
+                      d="M15.392 2.673a1.5 1.5 0 0 1 2.119-.115A10.475 10.475 0 0 1 21 10.375c0 5.8-4.701 10.5-10.5 10.5v-3a7.5 7.5 0 0 0 5.007-13.084a1.5 1.5 0 0 1-.115-2.118"
+                      transform="translate(1.5 1.625)"
+                    />
+                  </g>
                 </svg>
                 Adding
               </button>
@@ -221,13 +248,7 @@
               <tr v-for="(feature, index) in productFeatures" :key="index">
                 <td>{{ feature.title }}</td>
                 <td>{{ feature.details }}</td>
-                <td>
-                  <img
-                    class="w-10 h-10"
-                    :src="feature.image.src"
-                    :alt="feature.image.name"
-                  />
-                </td>
+                <td><img class="w-10 h-10" :src="feature.image" /></td>
                 <td>
                   <div
                     class="flex w-full h-full gap-3 items-center justify-center"
@@ -343,20 +364,25 @@ export default {
       }
       productImage.value = file;
     };
+    const loading = ref(false);
     const handleSubmit = async () => {
+      loading.value = true;
       try {
         let imageURL = null;
 
-        if (img.value && img.value !== props.datatoedit?.image) {
+        if (
+          productImage.value &&
+          productImage.value !== props.datatoedit?.image
+        ) {
           // Check image size
-          if (img.value.size > 1024 * 1024) {
+          if (productImage.value.size > 1024 * 1024) {
             console.error("Image size exceeds 1MB limit.");
             return;
           }
 
           // Upload image
-          const storagePath = `feature/${img.value.name}`;
-          imageURL = await uploadImage(storagePath, img.value);
+          const storagePath = `product/${productImage.value.name}`;
+          imageURL = await uploadImage(storagePath, productImage.value);
         } else {
           // If img.value hasn't changed or is not provided, retain the existing image URL
           imageURL = props.datatoedit?.image;
@@ -397,12 +423,14 @@ export default {
         let imageURL = null;
 
         if (img.value && img.value !== props.datatoedit?.image) {
+          // Check image size
           if (img.value.size > 1024 * 1024) {
             console.error("Image size exceeds 1MB limit.");
             return;
           }
 
-          const storagePath = `categories/${img.value.name}`;
+          // Upload image
+          const storagePath = `feature/${img.value.name}`;
           imageURL = await uploadImage(storagePath, img.value);
         } else {
           // If img.value hasn't changed or is not provided, retain the existing image URL
@@ -430,6 +458,7 @@ export default {
         itemsType.value = props.datatoedit.type;
         productDesscript.value = props.datatoedit.descritpts;
         productDisplay.value = props.datatoedit.productdisplay;
+        productImage.value = props.datatoedit.image;
       }
     });
     const currentComponent = ref("");
@@ -471,6 +500,7 @@ export default {
       ispending,
       handleFileChangeProductImage,
       productImage,
+      loading,
     };
   },
 };
